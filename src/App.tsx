@@ -1,4 +1,5 @@
 import { CustomCursor } from './components/CustomCursor';
+import { GridOverlay } from './components/GridOverlay';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { Philosophy } from './components/Philosophy';
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <>
+      <GridOverlay />
       <CustomCursor />
       <Navigation />
       <main>

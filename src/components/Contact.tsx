@@ -16,13 +16,13 @@ export const Contact = () => {
     <section
       id="contact"
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center px-6 py-32"
+      className="relative min-h-screen flex items-center justify-center px-8 py-24"
     >
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: 'url(/IMAGEN_AURUM_CONTACTO.png)' }}
       />
-      <div className="absolute inset-0 bg-black opacity-20" />
+      <div className="absolute inset-0 bg-black opacity-40" />
 
       <motion.div
         className="relative z-10 max-w-2xl w-full"
@@ -53,16 +53,16 @@ export const Contact = () => {
 
           <motion.button
             type="submit"
-            className="w-full px-8 py-4 font-body text-sm tracking-wide transition-opacity"
-            style={{ backgroundColor: 'var(--gold)', color: 'var(--text)' }}
-            whileHover={{ opacity: 0.9 }}
+            className="w-full px-8 py-4 font-body text-sm tracking-wide transition-all"
+            style={{ backgroundColor: 'var(--gold)', color: '#1A1A1A' }}
+            whileHover={{ backgroundColor: '#B89B6B' }}
           >
-            Enviar Consulta
+            Enviar Solicitud
           </motion.button>
         </form>
 
         <div className="mt-12 text-center">
-          <p className="font-body text-white text-sm">
+          <p className="font-body text-white text-lg" style={{ textShadow: '0 0 20px rgba(255,255,255,0.3)' }}>
             Private Line:{' '}
             <a
               href="tel:+34629554870"
@@ -77,7 +77,7 @@ export const Contact = () => {
               />
             </a>
           </p>
-          <p className="font-body text-white text-xs mt-2 opacity-70">
+          <p className="font-body text-white text-sm mt-2 opacity-80">
             Alicante HQ
           </p>
         </div>

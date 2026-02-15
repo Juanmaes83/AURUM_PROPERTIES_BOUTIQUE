@@ -9,6 +9,7 @@ export const DNA = () => {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const poeticPhrase = "La piedra respira. La madera late. El sol dibuja.".split(' ');
 
   return (
     <section
@@ -16,6 +17,36 @@ export const DNA = () => {
       ref={ref}
       className="py-32 px-6 md:px-12 max-w-7xl mx-auto"
     >
+      <motion.div
+        className="text-center mb-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <h3 className="font-headline text-3xl md:text-5xl" style={{ color: 'var(--text)' }}>
+          {poeticPhrase.map((word, index) => (
+            <motion.span
+              key={index}
+              className="inline-block mr-3"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    delay: index * 0.1,
+                    duration: 0.6,
+                    ease: 'easeOut',
+                  },
+                },
+              }}
+            >
+              {word}
+            </motion.span>
+          ))}
+        </h3>
+      </motion.div>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <motion.div
           className="space-y-6"

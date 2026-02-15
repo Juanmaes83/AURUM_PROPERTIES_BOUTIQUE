@@ -4,16 +4,40 @@ import { useRef } from 'react';
 
 const properties = [
   {
-    image: '/IMAGEN_AURUM_PROYECTOS.png',
+    image: '/IMAGEN_AURUM_HEROWEB.png',
     name: 'Villa Mediterránea',
     size: '450m²',
     architect: 'Arq. Ramón Esteve',
   },
   {
-    image: '/IMAGEN_AURUM_PROYECTOS.png',
+    image: '/IMAGEN_AURUM_HEROWEB_3.png',
     name: 'Casa del Mar',
     size: '380m²',
     architect: 'Arq. María Torres',
+  },
+  {
+    image: '/IMAGEN_AURUM_INTERIORES.png',
+    name: 'Ático Horizonte',
+    size: '520m²',
+    architect: 'Arq. Fran Silvestre',
+  },
+  {
+    image: '/IMAGEN_AURUM_INTERIORES_2.png',
+    name: 'Villa Altea Hills',
+    size: '650m²',
+    architect: 'Arq. Ramón Esteve',
+  },
+  {
+    image: '/IMAGEN_AURUM_MATERIALES.png',
+    name: 'Casa Piedra y Luz',
+    size: '410m²',
+    architect: 'Arq. María Torres',
+  },
+  {
+    image: '/IMAGEN_AURUM_MATERIALES_2.png',
+    name: 'Residencia Bernia',
+    size: '580m²',
+    architect: 'Arq. Fran Silvestre',
   },
 ];
 

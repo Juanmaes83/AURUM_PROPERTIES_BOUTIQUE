@@ -4,9 +4,11 @@ import { Menu, X } from 'lucide-react';
 
 const menuItems = [
   { label: 'Philosophy', href: '#philosophy' },
+  { label: 'About', href: '#about' },
   { label: 'Collection', href: '#collection' },
   { label: 'Services', href: '#services' },
   { label: 'DNA', href: '#dna' },
+  { label: 'Legacy', href: '#legacy' },
   { label: 'Contact', href: '#contact' },
 ];
 

@@ -1,15 +1,38 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
+import { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const DNA = () => {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
   const poeticPhrase = "La piedra respira. La madera late. El sol dibuja.".split(' ');
+
+  useEffect(() => {
+    if (!imageContainerRef.current || !imageRef.current) return;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: imageContainerRef.current,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+      },
+    });
+
+    tl.fromTo(
+      imageRef.current,
+      { yPercent: -15 },
+      { yPercent: 15, ease: 'none' }
+    );
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
 
   return (
     <section
@@ -78,18 +101,20 @@ export const DNA = () => {
         </motion.div>
 
         <motion.div
+          ref={imageContainerRef}
           className="relative h-[500px] overflow-hidden shadow-2xl"
-          style={{ y }}
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9 }}
         >
           <img
+            ref={imageRef}
             src="/IMAGEN_AURUM_MATERIALES.png"
             alt="DNA Materials"
             loading="lazy"
             className="w-full h-full object-cover"
+            style={{ scale: 1.1 }}
           />
         </motion.div>
       </div>

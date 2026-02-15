@@ -46,7 +46,7 @@ export const Collection = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ delay: index * 0.2, duration: 0.8 }}
           >
-            <div className="overflow-hidden mb-6 shadow-lg">
+            <div className="overflow-hidden mb-6 shadow-lg bg-gradient-to-br from-stone-300 to-stone-400">
               <motion.img
                 src={property.image}
                 alt={property.name}
@@ -54,6 +54,9 @@ export const Collection = () => {
                 className="w-full h-[400px] object-cover"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
+                onError={(e) => {
+                  e.currentTarget.style.opacity = '0';
+                }}
               />
             </div>
 

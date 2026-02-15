@@ -74,13 +74,17 @@ export const GridOverlay = () => {
         {verticalPositions.map((pos, index) => (
           <div
             key={`v-${index}`}
-            className="v-line absolute h-full"
+            className="v-line"
             style={{
+              position: 'fixed',
+              top: 0,
               left: `${pos}%`,
               width: '1px',
-              backgroundColor: 'var(--gold)',
-              opacity: 0.1,
-              border: '2px solid gold',
+              height: '100vh',
+              backgroundColor: 'red',
+              zIndex: 9999,
+              opacity: 1,
+              pointerEvents: 'none',
             }}
           />
         ))}
@@ -90,13 +94,17 @@ export const GridOverlay = () => {
         {horizontalPositions.map((pos, index) => (
           <div
             key={`h-${index}`}
-            className="h-line absolute w-full"
+            className="h-line"
             style={{
+              position: 'fixed',
               top: `${pos}%`,
+              left: 0,
+              width: '100vw',
               height: '1px',
-              backgroundColor: 'var(--gold)',
-              opacity: 0.1,
-              border: '2px solid gold',
+              backgroundColor: 'red',
+              zIndex: 9999,
+              opacity: 1,
+              pointerEvents: 'none',
             }}
           />
         ))}
@@ -106,15 +114,19 @@ export const GridOverlay = () => {
         {unaIntersections.map((intersection, index) => (
           <div
             key={`una-${index}`}
-            className="grid-dot absolute"
+            className="grid-dot"
             style={{
+              position: 'fixed',
               left: `${intersection.x}%`,
               top: `${intersection.y}%`,
               width: '4px',
               height: '4px',
-              backgroundColor: 'var(--gold)',
+              borderRadius: '50%',
+              backgroundColor: 'red',
+              zIndex: 9999,
+              opacity: 1,
+              pointerEvents: 'none',
               transform: 'translate(-50%, -50%)',
-              border: '2px solid gold',
             }}
           />
         ))}

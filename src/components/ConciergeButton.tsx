@@ -47,35 +47,28 @@ export const ConciergeButton = () => {
     <a
       ref={buttonRef}
       href="#contact"
-      className="concierge-button fixed z-50"
+      className="concierge-button"
       style={{
+        position: 'fixed',
         bottom: '2rem',
         right: '2rem',
-        background: 'var(--gold)',
-        color: 'var(--background)',
-        borderRadius: '40px',
+        backgroundColor: 'red',
+        zIndex: 10000,
         padding: '1rem 2rem',
-        boxShadow: '0 10px 30px -10px rgba(0, 0, 0, 0.3)',
-        fontFamily: 'var(--font-body)',
+        color: 'white',
+        borderRadius: '40px',
+        border: 'none',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontFamily: 'sans-serif',
         fontSize: '0.875rem',
-        fontWeight: '600',
         letterSpacing: '0.05em',
         textTransform: 'uppercase',
-        animation: 'float 6s ease-in-out infinite',
-        transition: 'transform 0.3s ease',
+        textDecoration: 'none',
+        display: 'inline-block',
       }}
     >
-      Concierge Privado
-      <style>{`
-        @keyframes float {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-          100% { transform: translateY(0px); }
-        }
-        .concierge-button:hover {
-          box-shadow: 0 15px 40px -10px rgba(166, 139, 91, 0.4);
-        }
-      `}</style>
+      CONCIERGE PRIVADO
     </a>
   );
 };

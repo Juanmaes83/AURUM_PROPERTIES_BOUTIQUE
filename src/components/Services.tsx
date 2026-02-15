@@ -61,16 +61,31 @@ const ServiceCard = ({ service, index, isInView }: { service: typeof services[0]
 
   return (
     <motion.div
-      className="group relative"
+      className="group relative border-l-2 border-transparent hover:border-l-2 pl-4 transition-all duration-500"
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ delay: index * 0.1, duration: 0.7 }}
+      style={{
+        borderLeftColor: 'transparent',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderLeftColor = 'var(--gold)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderLeftColor = 'transparent';
+      }}
     >
-      <div
-        ref={dividerRef}
-        className="gold-divider absolute top-0 left-0 w-full h-px"
-        style={{ backgroundColor: 'var(--gold)', opacity: 0.3 }}
-      />
+      <div className="relative">
+        <div
+          ref={dividerRef}
+          className="gold-divider absolute top-0 left-0 w-full h-px"
+          style={{ backgroundColor: 'var(--gold)', opacity: 0.3 }}
+        />
+        <div
+          className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full transition-all duration-500 origin-center"
+          style={{ backgroundColor: 'var(--gold)', opacity: 0.6 }}
+        />
+      </div>
 
       <div className="pt-6 space-y-4">
         <Icon size={32} style={{ color: 'var(--gold)' }} />

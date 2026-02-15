@@ -46,6 +46,16 @@ export const GridOverlay = () => {
           scrub: true,
         },
       });
+
+      gsap.to(containerRef.current, {
+        opacity: 0.02,
+        scrollTrigger: {
+          trigger: 'body',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 1,
+        },
+      });
     }, containerRef);
 
     return () => ctx.revert();
@@ -68,7 +78,7 @@ export const GridOverlay = () => {
     <div
       ref={containerRef}
       className="fixed inset-0 pointer-events-none"
-      style={{ zIndex: 1 }}
+      style={{ zIndex: 1, opacity: 0.1 }}
     >
       <div className="absolute inset-0">
         {verticalPositions.map((pos, index) => (
@@ -79,11 +89,9 @@ export const GridOverlay = () => {
               position: 'fixed',
               top: 0,
               left: `${pos}%`,
-              width: '1px',
+              width: '0.5px',
               height: '100vh',
-              backgroundColor: 'red',
-              zIndex: 9999,
-              opacity: 1,
+              backgroundColor: '#A68B5B',
               pointerEvents: 'none',
             }}
           />
@@ -100,10 +108,8 @@ export const GridOverlay = () => {
               top: `${pos}%`,
               left: 0,
               width: '100vw',
-              height: '1px',
-              backgroundColor: 'red',
-              zIndex: 9999,
-              opacity: 1,
+              height: '0.5px',
+              backgroundColor: '#A68B5B',
               pointerEvents: 'none',
             }}
           />
@@ -122,9 +128,7 @@ export const GridOverlay = () => {
               width: '4px',
               height: '4px',
               borderRadius: '50%',
-              backgroundColor: 'red',
-              zIndex: 9999,
-              opacity: 1,
+              backgroundColor: '#A68B5B',
               pointerEvents: 'none',
               transform: 'translate(-50%, -50%)',
             }}

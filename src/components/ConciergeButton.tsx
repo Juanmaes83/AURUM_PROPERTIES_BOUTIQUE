@@ -24,8 +24,8 @@ export const ConciergeButton = () => {
       const centerY = top + height / 2;
       const distance = Math.hypot(clientX - centerX, clientY - centerY);
 
-      if (distance < 100) {
-        const strength = 0.3;
+      if (distance < 120) {
+        const strength = 0.35;
         const deltaX = (clientX - centerX) * strength;
         const deltaY = (clientY - centerY) * strength;
         xToRef.current(deltaX);
@@ -44,31 +44,37 @@ export const ConciergeButton = () => {
   }, []);
 
   return (
-    <a
-      ref={buttonRef}
-      href="#contact"
-      className="concierge-button"
-      style={{
-        position: 'fixed',
-        bottom: '2rem',
-        right: '2rem',
-        backgroundColor: 'red',
-        zIndex: 10000,
-        padding: '1rem 2rem',
-        color: 'white',
-        borderRadius: '40px',
-        border: 'none',
-        cursor: 'pointer',
-        fontWeight: 'bold',
-        fontFamily: 'sans-serif',
-        fontSize: '0.875rem',
-        letterSpacing: '0.05em',
-        textTransform: 'uppercase',
-        textDecoration: 'none',
-        display: 'inline-block',
-      }}
-    >
-      CONCIERGE PRIVADO
-    </a>
+    <>
+      <a
+        ref={buttonRef}
+        href="#contact"
+        className="concierge-button fixed z-50"
+        style={{
+          bottom: '2rem',
+          right: '2rem',
+          background: 'var(--gold)',
+          color: 'var(--background)',
+          borderRadius: '40px',
+          padding: '1rem 2rem',
+          boxShadow: '0 10px 30px -10px rgba(166, 139, 91, 0.4)',
+          fontFamily: 'var(--font-body)',
+          fontSize: '0.875rem',
+          fontWeight: '600',
+          letterSpacing: '0.05em',
+          textTransform: 'uppercase',
+          textDecoration: 'none',
+          display: 'inline-block',
+          transition: 'box-shadow 0.3s ease',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.boxShadow = '0 15px 40px -10px rgba(166, 139, 91, 0.6)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(166, 139, 91, 0.4)';
+        }}
+      >
+        Concierge Privado
+      </a>
+    </>
   );
 };

@@ -51,6 +51,7 @@ const PropertyCard = ({ property, index, isInView }: { property: typeof properti
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const counterRef = useRef<HTMLSpanElement>(null);
+  const techLineRef = useRef<HTMLDivElement>(null);
   const magneticRef = useMagneticEffect(0.3) as React.RefObject<HTMLAnchorElement>;
 
   useEffect(() => {
@@ -71,6 +72,30 @@ const PropertyCard = ({ property, index, isInView }: { property: typeof properti
 
     return () => ctx.revert();
   }, []);
+
+  useEffect(() => {
+    if (!techLineRef.current || !isInView) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        techLineRef.current,
+        { scaleX: 0, transformOrigin: 'right' },
+        {
+          scaleX: 1,
+          duration: 1.2,
+          ease: 'power3.out',
+          delay: index * 0.2 + 0.8,
+          scrollTrigger: {
+            trigger: techLineRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
+    }, techLineRef);
+
+    return () => ctx.revert();
+  }, [isInView, index]);
 
   useEffect(() => {
     if (!counterRef.current || !isInView) return;
@@ -110,9 +135,19 @@ const PropertyCard = ({ property, index, isInView }: { property: typeof properti
             background: 'linear-gradient(90deg, transparent, rgba(166, 139, 91, 0.2), transparent)'
           }}
         />
+        <div className="absolute bottom-4 right-4 w-1 h-1 rounded-full" style={{ backgroundColor: 'var(--gold)' }} />
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-3 relative">
+        <div
+          ref={techLineRef}
+          className="absolute -top-3 right-0 h-px"
+          style={{
+            width: '60px',
+            backgroundColor: 'var(--gold)',
+            opacity: 0.5,
+          }}
+        />
         <h3 className="font-body text-xl" style={{ color: 'var(--text)' }}>
           {property.name} · <span className="font-mono text-gold tracking-widest"><span ref={counterRef} className="counter-value">0</span>m²</span> · {property.architect}
         </h3>

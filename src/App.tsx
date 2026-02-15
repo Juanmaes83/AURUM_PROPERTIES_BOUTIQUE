@@ -8,14 +8,11 @@ import { Collection } from './components/Collection';
 import { Services } from './components/Services';
 import { DNA } from './components/DNA';
 import { Legacy } from './components/Legacy';
+import { VIPCard } from './components/VIPCard';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ConciergeButton } from './components/ConciergeButton';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
-
-console.log("✅ GridOverlay path:", "/tmp/cc-agent/63754015/project/src/components/GridOverlay.tsx");
-console.log("✅ Concierge path:", "/tmp/cc-agent/63754015/project/src/components/ConciergeButton.tsx");
-console.log("🚀 Lenis/GSAP status: Initializing...");
 
 function App() {
   useSmoothScroll();
@@ -34,6 +31,7 @@ function App() {
         <Services />
         <DNA />
         <Legacy />
+        <VIPCard />
         <Contact />
       </main>
       <Footer />

@@ -10,6 +10,7 @@ import { DNA } from './components/DNA';
 import { Legacy } from './components/Legacy';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { ConciergeButton } from './components/ConciergeButton';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
     <>
       <GridOverlay />
       <CustomCursor />
+      <ConciergeButton />
       <Navigation />
       <main>
         <Hero />

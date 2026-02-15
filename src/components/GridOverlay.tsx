@@ -5,76 +5,50 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export const GridOverlay = () => {
-  const verticalLinesRef = useRef<HTMLDivElement>(null);
-  const horizontalLinesRef = useRef<HTMLDivElement>(null);
-  const unasRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const verticalLines = verticalLinesRef.current?.querySelectorAll('.vertical-line');
-    const horizontalLines = horizontalLinesRef.current?.querySelectorAll('.horizontal-line');
-    const unas = unasRef.current?.querySelectorAll('.una');
+    if (!containerRef.current) return;
 
-    if (verticalLines) {
-      gsap.fromTo(
-        verticalLines,
-        { scaleY: 0, transformOrigin: 'top' },
-        {
-          scaleY: 1,
-          duration: 1,
-          ease: 'power2.out',
-          stagger: 0.05,
-          scrollTrigger: {
-            trigger: 'body',
-            start: 'top top',
-            end: '20% top',
-            scrub: 1,
-          },
-        }
-      );
-    }
+    const ctx = gsap.context(() => {
+      gsap.from('.v-line', {
+        scaleY: 0,
+        stagger: 0.1,
+        transformOrigin: 'top',
+        scrollTrigger: {
+          trigger: 'body',
+          start: 'top top',
+          end: '20% top',
+          scrub: 1.5,
+        },
+      });
 
-    if (horizontalLines) {
-      gsap.fromTo(
-        horizontalLines,
-        { scaleX: 0, transformOrigin: 'left' },
-        {
-          scaleX: 1,
-          duration: 1,
-          ease: 'power2.out',
-          stagger: 0.05,
-          scrollTrigger: {
-            trigger: 'body',
-            start: 'top top',
-            end: '20% top',
-            scrub: 1,
-          },
-        }
-      );
-    }
+      gsap.from('.h-line', {
+        scaleX: 0,
+        stagger: 0.1,
+        transformOrigin: 'left',
+        scrollTrigger: {
+          trigger: 'body',
+          start: 'top top',
+          end: '20% top',
+          scrub: 1.5,
+        },
+      });
 
-    if (unas) {
-      gsap.fromTo(
-        unas,
-        { scale: 0, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 0.5,
-          ease: 'back.out(1.7)',
-          stagger: 0.02,
-          scrollTrigger: {
-            trigger: 'body',
-            start: 'top top',
-            end: '20% top',
-            scrub: 1,
-          },
-        }
-      );
-    }
+      gsap.from('.grid-dot', {
+        scale: 0,
+        opacity: 0,
+        stagger: { each: 0.05, from: 'start' },
+        scrollTrigger: {
+          trigger: 'body',
+          start: 'top top',
+          end: '20% top',
+          scrub: true,
+        },
+      });
+    }, containerRef);
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
+    return () => ctx.revert();
   }, []);
 
   const verticalPositions = [0, 8.33, 16.66, 25, 33.33, 41.66, 50, 58.33, 66.66, 75, 83.33, 91.66];
@@ -92,44 +66,47 @@ export const GridOverlay = () => {
 
   return (
     <div
+      ref={containerRef}
       className="fixed inset-0 pointer-events-none"
       style={{ zIndex: 1 }}
     >
-      <div ref={verticalLinesRef} className="absolute inset-0">
+      <div className="absolute inset-0">
         {verticalPositions.map((pos, index) => (
           <div
             key={`v-${index}`}
-            className="vertical-line absolute h-full"
+            className="v-line absolute h-full"
             style={{
               left: `${pos}%`,
               width: '1px',
               backgroundColor: 'var(--gold)',
               opacity: 0.1,
+              border: '2px solid gold',
             }}
           />
         ))}
       </div>
 
-      <div ref={horizontalLinesRef} className="absolute inset-0">
+      <div className="absolute inset-0">
         {horizontalPositions.map((pos, index) => (
           <div
             key={`h-${index}`}
-            className="horizontal-line absolute w-full"
+            className="h-line absolute w-full"
             style={{
               top: `${pos}%`,
               height: '1px',
               backgroundColor: 'var(--gold)',
               opacity: 0.1,
+              border: '2px solid gold',
             }}
           />
         ))}
       </div>
 
-      <div ref={unasRef} className="absolute inset-0">
+      <div className="absolute inset-0">
         {unaIntersections.map((intersection, index) => (
           <div
             key={`una-${index}`}
-            className="una absolute"
+            className="grid-dot absolute"
             style={{
               left: `${intersection.x}%`,
               top: `${intersection.y}%`,
@@ -137,6 +114,7 @@ export const GridOverlay = () => {
               height: '4px',
               backgroundColor: 'var(--gold)',
               transform: 'translate(-50%, -50%)',
+              border: '2px solid gold',
             }}
           />
         ))}

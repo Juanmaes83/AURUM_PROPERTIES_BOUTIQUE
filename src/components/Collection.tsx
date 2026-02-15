@@ -4,6 +4,7 @@ import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useMagneticEffect } from '../hooks/useMagneticEffect';
+import { RevealText } from './RevealText';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,24 +56,20 @@ const PropertyCard = ({ property, index, isInView }: { property: typeof properti
   useEffect(() => {
     if (!imageContainerRef.current || !imageRef.current) return;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: imageContainerRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true,
-      },
-    });
+    const ctx = gsap.context(() => {
+      gsap.to(imageRef.current, {
+        yPercent: 40,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: imageContainerRef.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.5,
+        },
+      });
+    }, imageContainerRef);
 
-    tl.fromTo(
-      imageRef.current,
-      { yPercent: -15 },
-      { yPercent: 15, ease: 'none' }
-    );
-
-    return () => {
-      tl.kill();
-    };
+    return () => ctx.revert();
   }, []);
 
   useEffect(() => {
@@ -99,14 +96,19 @@ const PropertyCard = ({ property, index, isInView }: { property: typeof properti
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ delay: index * 0.2, duration: 0.8 }}
     >
-      <div ref={imageContainerRef} className="overflow-hidden mb-6 shadow-lg h-[400px]">
+      <div ref={imageContainerRef} className="parallax-container relative overflow-hidden mb-6 shadow-lg h-[400px]">
         <img
           ref={imageRef}
           src={property.image}
           alt={property.name}
           loading="lazy"
-          className="w-full h-full object-cover"
-          style={{ scale: 1.1 }}
+          className="parallax-img w-full h-full object-cover"
+          style={{ scale: 1.4 }}
+        />
+        <div className="gold-overlay absolute top-0 left-0 w-0 h-full pointer-events-none z-10 transition-all duration-700 group-hover:w-full"
+          style={{
+            background: 'linear-gradient(90deg, transparent, rgba(166, 139, 91, 0.2), transparent)'
+          }}
         />
       </div>
 
@@ -144,15 +146,12 @@ export const Collection = () => {
       ref={ref}
       className="py-32 px-6 md:px-12 max-w-7xl mx-auto"
     >
-      <motion.h2
+      <RevealText
         className="font-headline text-4xl md:text-5xl text-center mb-16"
         style={{ color: 'var(--text)' }}
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98 }}
-        transition={{ duration: 0.9, ease: 'easeOut' }}
       >
         The Collection
-      </motion.h2>
+      </RevealText>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {properties.map((property, index) => (

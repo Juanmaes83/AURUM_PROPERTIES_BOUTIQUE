@@ -4,6 +4,7 @@ import { useRef, useEffect } from 'react';
 import { Palette, Shield, Scale, Sparkles } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { RevealText } from './RevealText';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,21 +38,25 @@ const ServiceCard = ({ service, index, isInView }: { service: typeof services[0]
   useEffect(() => {
     if (!dividerRef.current || !isInView) return;
 
-    gsap.fromTo(
-      dividerRef.current,
-      { scaleX: 0, transformOrigin: 'left' },
-      {
-        scaleX: 1,
-        duration: 1.2,
-        ease: 'power4.out',
-        delay: index * 0.15,
-        scrollTrigger: {
-          trigger: dividerRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        },
-      }
-    );
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        dividerRef.current,
+        { scaleX: 0, transformOrigin: 'left' },
+        {
+          scaleX: 1,
+          duration: 1.2,
+          ease: 'power4.out',
+          delay: index * 0.15,
+          scrollTrigger: {
+            trigger: dividerRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
+    }, dividerRef);
+
+    return () => ctx.revert();
   }, [isInView, index]);
 
   return (
@@ -90,15 +95,12 @@ export const Services = () => {
       ref={ref}
       className="py-32 px-6 md:px-12 max-w-7xl mx-auto"
     >
-      <motion.h2
+      <RevealText
         className="font-headline text-4xl md:text-5xl text-center mb-16"
         style={{ color: 'var(--text)' }}
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98 }}
-        transition={{ duration: 0.9, ease: 'easeOut' }}
       >
         The Bespoke Services
-      </motion.h2>
+      </RevealText>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {services.map((service, index) => (

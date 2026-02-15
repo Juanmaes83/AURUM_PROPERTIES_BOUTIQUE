@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { RevealText } from './RevealText';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,24 +15,20 @@ export const DNA = () => {
   useEffect(() => {
     if (!imageContainerRef.current || !imageRef.current) return;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: imageContainerRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true,
-      },
-    });
+    const ctx = gsap.context(() => {
+      gsap.to(imageRef.current, {
+        yPercent: 40,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: imageContainerRef.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.5,
+        },
+      });
+    }, imageContainerRef);
 
-    tl.fromTo(
-      imageRef.current,
-      { yPercent: -15 },
-      { yPercent: 15, ease: 'none' }
-    );
-
-    return () => {
-      tl.kill();
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -78,9 +75,12 @@ export const DNA = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.9 }}
         >
-          <h2 className="font-headline text-4xl md:text-5xl" style={{ color: 'var(--text)' }}>
+          <RevealText
+            className="font-headline text-4xl md:text-5xl"
+            style={{ color: 'var(--text)' }}
+          >
             DNA: Materials & Light
-          </h2>
+          </RevealText>
 
           <div className="space-y-4 font-body text-base leading-relaxed">
             <p>
@@ -113,8 +113,8 @@ export const DNA = () => {
             src="/IMAGEN_AURUM_MATERIALES.png"
             alt="DNA Materials"
             loading="lazy"
-            className="w-full h-full object-cover"
-            style={{ scale: 1.1 }}
+            className="parallax-img w-full h-full object-cover"
+            style={{ scale: 1.4 }}
           />
         </motion.div>
       </div>

@@ -47,7 +47,7 @@ export const DNA = () => {
         </motion.div>
 
         <motion.div
-          className="relative h-[500px] overflow-hidden shadow-2xl bg-gradient-to-br from-amber-100 via-stone-200 to-stone-300"
+          className="relative h-[500px] overflow-hidden shadow-2xl"
           style={{ y }}
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -59,9 +59,6 @@ export const DNA = () => {
             alt="DNA Materials"
             loading="lazy"
             className="w-full h-full object-cover"
-            onError={(e) => {
-              e.currentTarget.style.opacity = '0';
-            }}
           />
         </motion.div>
       </div>

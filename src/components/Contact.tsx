@@ -16,16 +16,16 @@ export const Contact = () => {
     <section
       id="contact"
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center px-6 py-32 bg-gradient-to-br from-stone-700 via-stone-600 to-stone-800"
+      className="relative min-h-screen flex items-center justify-center px-6 py-32"
     >
       <div
-        className="absolute inset-0 bg-cover bg-center z-0"
+        className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: 'url(/IMAGEN_AURUM_CONTACTO.png)' }}
       />
-      <div className="absolute inset-0 bg-black opacity-20 z-[1]" />
+      <div className="absolute inset-0 bg-black opacity-20" />
 
       <motion.div
-        className="relative z-[2] max-w-2xl w-full"
+        className="relative z-10 max-w-2xl w-full"
         initial={{ opacity: 0, scale: 0.98 }}
         animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98 }}
         transition={{ duration: 0.9, ease: 'easeOut' }}

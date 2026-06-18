@@ -1,12 +1,13 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Home, TrendingUp, Shield, ArrowRight } from 'lucide-react';
+import { Home, TrendingUp, Shield, ArrowRight, ExternalLink } from 'lucide-react';
 import { casasYMarDemo } from '../../data/clientDemos/casasYMar';
 
 export const CasasYMarOwnerCapture = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const { ownerCapture } = casasYMarDemo;
+  const { ownerCapture, technology } = casasYMarDemo;
+  const rubikLink = technology.items[1].href;
 
   const benefits = [
     { icon: Home, text: 'Captamos el mejor producto para nuestros compradores' },
@@ -63,12 +64,16 @@ export const CasasYMarOwnerCapture = () => {
             {ownerCapture.cta}
             <ArrowRight size={16} />
           </a>
-          <span
-            className="px-8 py-4 font-body text-sm tracking-widest uppercase border inline-flex items-center justify-center"
+          <a
+            href={rubikLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 font-body text-sm tracking-widest uppercase border inline-flex items-center justify-center gap-2 transition-all hover:bg-black/5"
             style={{ borderColor: 'var(--text)', color: 'var(--text)' }}
           >
             {ownerCapture.secondary}
-          </span>
+            <ExternalLink size={16} />
+          </a>
         </div>
       </motion.div>
     </section>

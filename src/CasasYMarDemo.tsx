@@ -11,6 +11,7 @@ import { CasasYMarPropertyShowcase } from './components/casasYMar/CasasYMarPrope
 import { CasasYMarCollection } from './components/casasYMar/CasasYMarCollection';
 import { CasasYMarServices } from './components/casasYMar/CasasYMarServices';
 import { CasasYMarImmersphereModules } from './components/casasYMar/CasasYMarImmersphereModules';
+import { CasasYMarTechnology } from './components/casasYMar/CasasYMarTechnology';
 import { CasasYMarPilotSteps } from './components/casasYMar/CasasYMarPilotSteps';
 import { CasasYMarBlogGuides } from './components/casasYMar/CasasYMarBlogGuides';
 import { CasasYMarOwnerCapture } from './components/casasYMar/CasasYMarOwnerCapture';
@@ -46,6 +47,7 @@ export const CasasYMarDemo = () => {
         <CasasYMarCollection />
         <CasasYMarServices />
         <CasasYMarImmersphereModules />
+        <CasasYMarTechnology />
         <CasasYMarPilotSteps />
         <CasasYMarBlogGuides />
         <CasasYMarOwnerCapture />

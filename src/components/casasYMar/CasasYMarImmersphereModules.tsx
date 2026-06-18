@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Check, CircleDot, ArrowRight } from 'lucide-react';
+import { Check, CircleDot, ArrowRight, ExternalLink } from 'lucide-react';
 import { RevealText } from '../RevealText';
 import { casasYMarDemo } from '../../data/clientDemos/casasYMar';
 
@@ -13,7 +13,9 @@ const statusConfig = {
 export const CasasYMarImmersphereModules = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
-  const { immersphereModules, commercial } = casasYMarDemo;
+  const { immersphereModules, commercial, technology } = casasYMarDemo;
+
+  const immersphereLink = technology.items[0].href;
 
   return (
     <section id="immersphere" ref={ref} className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
@@ -81,6 +83,16 @@ export const CasasYMarImmersphereModules = () => {
         <p className="font-body mt-2" style={{ color: 'var(--text)', opacity: 0.7 }}>
           Upsell: {commercial.upsell}
         </p>
+        <a
+          href={immersphereLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 mt-6 px-6 py-3 font-body text-xs tracking-widest uppercase transition-all hover:scale-105"
+          style={{ backgroundColor: 'var(--gold)', color: '#1A1A1A' }}
+        >
+          Ver tecnología Immersphere
+          <ExternalLink size={14} />
+        </a>
       </motion.div>
     </section>
   );

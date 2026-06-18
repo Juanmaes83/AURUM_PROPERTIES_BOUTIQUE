@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, BookOpen } from 'lucide-react';
 import { casasYMarDemo } from '../../data/clientDemos/casasYMar';
 import { RevealText } from '../RevealText';
 
@@ -16,12 +16,15 @@ export const CasasYMarBlogGuides = () => {
           Contenido estratégico
         </span>
         <RevealText className="font-headline text-4xl md:text-5xl mt-4" style={{ color: 'var(--text)' }}>
-          Blog / guías locales
+          {blogGuides.headline}
         </RevealText>
+        <p className="font-body mt-4 max-w-3xl mx-auto" style={{ color: 'var(--text)', opacity: 0.7 }}>
+          {blogGuides.intro}
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {blogGuides.map((guide, index) => (
+        {blogGuides.guides.map((guide, index) => (
           <motion.a
             key={guide.title}
             href="#"
@@ -32,13 +35,16 @@ export const CasasYMarBlogGuides = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: index * 0.1, duration: 0.7 }}
           >
-            <div>
-              <span className="font-mono text-[10px] tracking-widest uppercase" style={{ color: 'var(--gold)' }}>
-                {guide.category}
-              </span>
-              <h3 className="font-headline text-2xl mt-2" style={{ color: 'var(--text)' }}>
-                {guide.title}
-              </h3>
+            <div className="flex items-start gap-4">
+              <BookOpen size={24} style={{ color: 'var(--gold)', flexShrink: 0, marginTop: '4px' }} />
+              <div>
+                <span className="font-mono text-[10px] tracking-widest uppercase" style={{ color: 'var(--gold)' }}>
+                  {guide.category}
+                </span>
+                <h3 className="font-headline text-2xl mt-1" style={{ color: 'var(--text)' }}>
+                  {guide.title}
+                </h3>
+              </div>
             </div>
             <ArrowUpRight
               size={24}

@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { casasYMarDemo } from '../../data/clientDemos/casasYMar';
-import { MapPin, Phone, Mail, Globe, Calendar, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, Smartphone, Mail, Globe, Calendar, ArrowRight, BadgeCheck } from 'lucide-react';
 
 export const CasasYMarContact = () => {
   const ref = useRef(null);
@@ -16,9 +16,11 @@ export const CasasYMarContact = () => {
 
   const contactItems = [
     { icon: MapPin, label: 'Dirección', value: client.address, href: '#' },
-    { icon: Phone, label: 'Teléfono', value: client.phone, href: `tel:${client.phone.replace(/\s/g, '')}` },
+    { icon: Phone, label: 'Teléfono fijo', value: client.phone, href: `tel:${client.phone.replace(/\s/g, '')}` },
+    { icon: Smartphone, label: 'WhatsApp', value: client.whatsapp, href: `https://wa.me/${client.whatsapp.replace(/\D/g, '')}` },
     { icon: Mail, label: 'Email', value: client.email, href: `mailto:${client.email}` },
     { icon: Globe, label: 'Web', value: client.website, href: client.website },
+    { icon: BadgeCheck, label: 'RAICV', value: client.raicv, href: '#' },
   ];
 
   return (
@@ -41,6 +43,13 @@ export const CasasYMarContact = () => {
       >
         <div className="text-white space-y-8">
           <div>
+            <div className="inline-block bg-white/90 rounded-lg px-4 py-2 mb-6">
+              <img
+                src={client.logo.url}
+                alt={client.name}
+                className="h-12 w-auto object-contain"
+              />
+            </div>
             <span className="font-mono text-xs tracking-widest uppercase" style={{ color: 'var(--gold)' }}>
               Contacto
             </span>
@@ -51,12 +60,13 @@ export const CasasYMarContact = () => {
           <div className="space-y-4">
             {contactItems.map((item) => {
               const Icon = item.icon;
+              const isExternal = item.label === 'Web' || item.label === 'WhatsApp';
               return (
                 <a
                   key={item.label}
                   href={item.href}
-                  target={item.label === 'Web' ? '_blank' : undefined}
-                  rel={item.label === 'Web' ? 'noopener noreferrer' : undefined}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}
                   className="flex items-center gap-4 group"
                 >
                   <Icon size={20} style={{ color: 'var(--gold)' }} />
@@ -70,7 +80,7 @@ export const CasasYMarContact = () => {
           </div>
 
           <a
-            href={`https://wa.me/${client.phone.replace(/\D/g, '')}`}
+            href={`https://wa.me/${client.whatsapp.replace(/\D/g, '')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 font-body text-sm tracking-widest uppercase transition-all hover:scale-105"

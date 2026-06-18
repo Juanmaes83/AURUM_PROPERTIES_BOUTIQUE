@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { casasYMarDemo } from '../../data/clientDemos/casasYMar';
 import { RevealText } from '../RevealText';
 import { useMagneticEffect } from '../../hooks/useMagneticEffect';
-import { Scan, Video, Map, QrCode, MousePointerClick, Calendar, MessageCircle } from 'lucide-react';
+import { Scan, Video, Map, QrCode, MousePointerClick, Calendar, MessageCircle, AlertCircle } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,7 +29,7 @@ export const CasasYMarPropertyShowcase = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const magneticRef = useMagneticEffect(0.3) as React.RefObject<HTMLButtonElement>;
 
-  const { propertyShowcase } = casasYMarDemo;
+  const { propertyShowcase, client } = casasYMarDemo;
 
   useEffect(() => {
     if (!imageContainerRef.current || !imageRef.current) return;
@@ -75,7 +75,7 @@ export const CasasYMarPropertyShowcase = () => {
         >
           <img
             ref={imageRef}
-            src="/IMAGEN_AURUM_INTERIORES.png"
+            src={propertyShowcase.image}
             alt="Propiedad piloto Casas y Mar"
             loading="lazy"
             className="parallax-img w-full h-full object-cover"
@@ -126,6 +126,18 @@ export const CasasYMarPropertyShowcase = () => {
             })}
           </div>
 
+          <div
+            className="p-4 flex items-start gap-3 border border-dashed"
+            style={{ borderColor: 'var(--gold)', backgroundColor: 'rgba(166, 139, 91, 0.03)' }}
+          >
+            <AlertCircle size={18} style={{ color: 'var(--gold)', flexShrink: 0, marginTop: '2px' }} />
+            <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text)', opacity: 0.75 }}>
+              Imagen candidata extraída de la web pública de Casas y Mar con status{' '}
+              <em>{propertyShowcase.imageStatus}</em>. La ficha real se construirá sobre una propiedad
+              concreta elegida por el cliente.
+            </p>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <button
               ref={magneticRef}
@@ -136,7 +148,7 @@ export const CasasYMarPropertyShowcase = () => {
               {propertyShowcase.ctas[0]}
             </button>
             <a
-              href={`https://wa.me/${casasYMarDemo.client.phone.replace(/\D/g, '')}`}
+              href={`https://wa.me/${client.whatsapp.replace(/\D/g, '')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 font-body text-sm tracking-widest uppercase border flex items-center justify-center gap-2 transition-all hover:bg-black/5"

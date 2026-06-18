@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Store, FileText, MessageSquare, Signpost, Mail, Megaphone, QrCode } from 'lucide-react';
+import { Store, FileText, MessageSquare, Signpost, Mail, Megaphone, QrCode, ExternalLink } from 'lucide-react';
 import { casasYMarDemo } from '../../data/clientDemos/casasYMar';
 import { RevealText } from '../RevealText';
 
@@ -16,7 +16,8 @@ const iconMap: Record<string, React.ElementType> = {
 export const CasasYMarQRDistro = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const { qrDistro } = casasYMarDemo;
+  const { qrDistro, technology } = casasYMarDemo;
+  const immersphereLink = technology.items[0].href;
 
   return (
     <section ref={ref} className="py-32 px-6 md:px-12 max-w-6xl mx-auto">
@@ -68,6 +69,16 @@ export const CasasYMarQRDistro = () => {
           <p className="font-body text-sm" style={{ color: 'var(--text)', opacity: 0.7 }}>
             QR de demostración · Enlace simulado a experiencia inmersiva
           </p>
+          <a
+            href={immersphereLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-3 font-body text-xs tracking-widest uppercase transition-all hover:opacity-80"
+            style={{ color: 'var(--gold)' }}
+          >
+            Ver tecnología Immersphere
+            <ExternalLink size={12} />
+          </a>
         </div>
       </motion.div>
     </section>

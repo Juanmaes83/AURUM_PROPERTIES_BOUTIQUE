@@ -3,14 +3,14 @@ import { gsap } from 'gsap';
 import SplitType from 'split-type';
 import { motion } from 'framer-motion';
 import { casasYMarDemo } from '../../data/clientDemos/casasYMar';
-import { Eye, ChevronRight } from 'lucide-react';
+import { Eye, ChevronRight, ExternalLink } from 'lucide-react';
 
 export const CasasYMarHero = () => {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subheadlineRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
-  const { hero, client } = casasYMarDemo;
+  const { hero, client, technology } = casasYMarDemo;
 
   useEffect(() => {
     if (!headlineRef.current) return;
@@ -61,6 +61,8 @@ export const CasasYMarHero = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const immersphereLink = technology.items[0].href;
+
   return (
     <section id="hero" className="relative h-screen w-full overflow-hidden">
       <video
@@ -81,10 +83,17 @@ export const CasasYMarHero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm mb-8"
+          className="inline-flex flex-col sm:flex-row items-center gap-3 px-4 py-3 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm mb-8"
         >
-          <Eye size={14} className="text-white" />
-          <span className="font-mono text-xs tracking-widest uppercase text-white">{hero.badge}</span>
+          <img
+            src={client.logo.smartUrl || client.logo.url}
+            alt={client.name}
+            className="h-8 w-auto object-contain"
+          />
+          <div className="flex items-center gap-2">
+            <Eye size={14} className="text-white" />
+            <span className="font-mono text-xs tracking-widest uppercase text-white">{hero.badge}</span>
+          </div>
         </motion.div>
 
         <h1
@@ -102,19 +111,22 @@ export const CasasYMarHero = () => {
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 opacity-0">
-          <button
-            onClick={() => scrollTo('#immersphere')}
+          <a
+            href={immersphereLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-8 py-4 font-body text-sm tracking-widest uppercase flex items-center justify-center gap-2 transition-all hover:scale-105"
             style={{ backgroundColor: 'var(--gold)', color: '#1A1A1A' }}
           >
             {hero.primaryCta}
-            <ChevronRight size={16} />
-          </button>
+            <ExternalLink size={16} />
+          </a>
           <button
             onClick={() => scrollTo('#pilot')}
-            className="px-8 py-4 font-body text-sm tracking-widest uppercase border border-white/50 text-white backdrop-blur-sm transition-all hover:bg-white/10"
+            className="px-8 py-4 font-body text-sm tracking-widest uppercase border border-white/50 text-white backdrop-blur-sm transition-all hover:bg-white/10 flex items-center justify-center gap-2"
           >
             {hero.secondaryCta}
+            <ChevronRight size={16} />
           </button>
         </div>
 

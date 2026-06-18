@@ -1,12 +1,11 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Scan, Sparkles, ExternalLink } from 'lucide-react';
+import { Scan, ExternalLink } from 'lucide-react';
 import { RevealText } from '../RevealText';
 import { casasYMarDemo } from '../../data/clientDemos/casasYMar';
 
 const iconMap: Record<string, React.ElementType> = {
   'Immersphere Pro': Scan,
-  'Rubik Sota Director de Orquesta': Sparkles,
 };
 
 export const CasasYMarTechnology = () => {

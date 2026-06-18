@@ -388,7 +388,7 @@ export const casasYMarDemo = {
   technology: {
     title: 'Tecnología aplicada a la propuesta',
     intro:
-      'Dos motores visuales que elevan la propuesta digital de Casas y Mar: experiencias inmersivas navegables y motion banners dinámicos para campañas premium.',
+      'Una capa visual inmersiva para convertir propiedades en experiencias navegables, medibles y compartibles.',
     items: [
       {
         name: 'Immersphere Pro',
@@ -397,20 +397,14 @@ export const casasYMarDemo = {
         href: 'https://immersphere-pro-crm.vercel.app/',
         cta: 'Ver tecnología Immersphere',
       },
-      {
-        name: 'Rubik Sota Director de Orquesta',
-        description:
-          'Motor visual avanzado para experiencias dinámicas, motion banners e interacción visual aplicada a propuestas premium.',
-        href: 'https://rubik-sota-director-de-orquesta.vercel.app/gesture-lab/dynamic-motion-banners/rubik-sota-dynamic-motion-banners-v0-3.html',
-        cta: 'Ver motor visual Rubik Sota',
-      },
     ],
   },
   ownerCapture: {
     title: '¿Quieres vender tu vivienda en Torrevieja?',
     subtitle: 'No solo vendemos propiedades: captamos el mejor producto para nuestros compradores.',
     cta: 'Valora tu vivienda',
-    secondary: 'Ver motor visual Rubik Sota',
+    secondary: 'Compara con tu web actual',
+    secondaryHref: 'https://casasymar.com/',
   },
   qrDistro: {
     title: 'QR y distribución',
@@ -429,13 +423,13 @@ export const casasYMarDemo = {
       variant: 'secondary',
     },
     {
-      label: 'Ver tecnología Immersphere',
-      href: 'https://immersphere-pro-crm.vercel.app/',
+      label: 'Ver servicios Immersphere',
+      href: 'https://immersphere-pro-crm.vercel.app/servicios',
       variant: 'external',
     },
     {
-      label: 'Ver motor visual Rubik Sota',
-      href: 'https://rubik-sota-director-de-orquesta.vercel.app/gesture-lab/dynamic-motion-banners/rubik-sota-dynamic-motion-banners-v0-3.html',
+      label: 'Compara con tu web actual',
+      href: 'https://casasymar.com/',
       variant: 'external',
     },
   ],
@@ -453,6 +447,70 @@ export const casasYMarDemo = {
     priceRange: 'Piloto 450-900 € / mensualidad 150-490 €',
     deliveryTime: '3-7 días por propiedad piloto',
     upsell: 'Web Premium inmobiliaria + campañas Meta/Google + SEO/GEO local',
+  },
+
+  // ── Reusable conversion blocks (FASE 4A.7) ─────────────────────────────────
+  // These blocks are designed to be reused across future client demos.
+  // Casas y Mar is the first pilot instance.
+
+  salesContact: {
+    whatsapp: '+34629554870',
+    whatsappDigits: '34629554870',
+    phone: '+34629554870',
+    visiblePhone: '629 554 870',
+    ownerName: 'Equipo Immersphere',
+  },
+
+  comparison: {
+    eyebrow: 'COMPARATIVA ESTRATÉGICA',
+    title: '¿Tu web actual está captando propietarios o solo mostrando inmuebles?',
+    body: 'Tu web actual informa. Esta experiencia está pensada para vender, guiar y convertir.',
+    bullets: [
+      'Web actual: catálogo de propiedades.',
+      'Esta propuesta: experiencia comercial que guía a comprador y propietario hasta el contacto.',
+    ],
+    primaryCta: 'COMPARA CON TU WEB ACTUAL',
+    primaryHref: 'https://casasymar.com/',
+  },
+
+  immersphereServices: {
+    eyebrow: 'SERVICIOS COMERCIALES',
+    title: 'Servicios Immersphere para inmobiliarias',
+    body: 'Conectamos piezas visuales, experiencias premium, QR, captación y seguimiento comercial para que una propiedad no solo se vea mejor: genere más oportunidades.',
+    secondary: 'Del impacto visual a la captación: una propuesta pensada para propietarios, compradores y equipos comerciales.',
+    primaryCta: 'VER SERVICIOS IMMERSHPERE',
+    primaryHref: 'https://immersphere-pro-crm.vercel.app/servicios',
+  },
+
+  visualExperience: {
+    eyebrow: 'VISUAL EXPERIENCE BANNER',
+    title: 'Experiencia Visual de Propiedad',
+    body: 'No es solo una imagen bonita. Es una pieza dinámica con propiedad destacada, galería, QR, llamada a la acción y contacto directo, pensada para redes, escaparate digital, campañas locales o captación de propietarios.',
+    supportBody: 'Convierte una propiedad en una experiencia visual rápida, clara y accionable: el usuario ve, entiende, escanea y contacta.',
+    previewImage: '/casasymar/news_2.jpg',
+    previewSecondaryImage: '/casasymar/news_3.jpg',
+    previewTertiaryImage: '/casasymar/news_1.jpg',
+    primaryCta: 'SÍ, QUIERO UNA PARA MI PROPIEDAD',
+    primaryHref:
+      'https://wa.me/34629554870?text=Hola,%20quiero%20ver%20c%C3%B3mo%20podr%C3%ADa%20quedar%20una%20pieza%20visual%20para%20mi%20propiedad.',
+    secondaryCta: 'LLAMAR AL 629 554 870',
+    secondaryHref: 'tel:+34629554870',
+    chips: ['Tour 360', 'Galería', 'QR', 'Visita desde móvil', 'Torrevieja'],
+    // Internal reference only — never used as a public CTA destination.
+    internalToolUrl:
+      'https://rubik-sota-director-de-orquesta.vercel.app/gesture-lab/dynamic-motion-banners/rubik-sota-dynamic-motion-banners-casas-y-mar-v1.html',
+  },
+
+  highIntentContact: {
+    eyebrow: 'CONTACTO DIRECTO',
+    title: '¿Quieres ver cómo quedaría una propiedad real de Casas y Mar?',
+    body: 'Cada visita que no se entiende online es una oportunidad perdida antes de llegar a la llamada. Podemos preparar una experiencia visual para una propiedad piloto y medir si mejora la respuesta.',
+    primaryCta: 'SÍ, QUIERO VERLO POR WHATSAPP',
+    primaryHref:
+      'https://wa.me/34629554870?text=Hola,%20quiero%20ver%20c%C3%B3mo%20podr%C3%ADa%20quedar%20una%20experiencia%20visual%20para%20una%20propiedad.',
+    secondaryCta: 'LLAMAR AL 629 554 870',
+    secondaryHref: 'tel:+34629554870',
+    microcopy: 'Sin compromiso. Solo una primera propiedad piloto para valorar el impacto.',
   },
 };
 

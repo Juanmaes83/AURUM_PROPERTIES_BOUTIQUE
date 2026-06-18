@@ -6,8 +6,8 @@ import { casasYMarDemo } from '../../data/clientDemos/casasYMar';
 export const CasasYMarOwnerCapture = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const { ownerCapture, technology } = casasYMarDemo;
-  const rubikLink = technology.items[1].href;
+  const { ownerCapture } = casasYMarDemo;
+  const secondaryLink = ownerCapture.secondaryHref;
 
   const benefits = [
     { icon: Home, text: 'Captamos el mejor producto para nuestros compradores' },
@@ -65,7 +65,7 @@ export const CasasYMarOwnerCapture = () => {
             <ArrowRight size={16} />
           </a>
           <a
-            href={rubikLink}
+            href={secondaryLink}
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 font-body text-sm tracking-widest uppercase border inline-flex items-center justify-center gap-2 transition-all hover:bg-black/5"

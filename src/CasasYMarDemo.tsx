@@ -62,7 +62,7 @@ export const CasasYMarDemo = () => {
           primaryCta={cfg.comparison.primaryCta}
         />
 
-        {/* Reusable: client-facing visual piece (no internal tool exposed) */}
+        {/* Reusable: client-facing visual piece — live iframe of the final product */}
         <VisualExperienceBannerSection
           clientName={cfg.client.name}
           clientLocation={cfg.client.location}
@@ -70,6 +70,10 @@ export const CasasYMarDemo = () => {
           whatsappHref={cfg.visualExperience.primaryHref}
           phoneHref={cfg.visualExperience.secondaryHref}
           visiblePhone={cfg.salesContact.visiblePhone}
+          embedUrl={cfg.visualExperience.embedUrl}
+          standaloneUrl={cfg.visualExperience.standaloneUrl}
+          horizontalUrl={cfg.visualExperience.horizontalUrl}
+          verticalUrl={cfg.visualExperience.verticalUrl}
           previewImage={cfg.visualExperience.previewImage}
           previewSecondaryImage={cfg.visualExperience.previewSecondaryImage}
           previewTertiaryImage={cfg.visualExperience.previewTertiaryImage}
@@ -80,6 +84,7 @@ export const CasasYMarDemo = () => {
           supportBody={cfg.visualExperience.supportBody}
           primaryCta={cfg.visualExperience.primaryCta}
           secondaryCta={cfg.visualExperience.secondaryCta}
+          pieceCta={cfg.visualExperience.pieceCta}
         />
 
         <CasasYMarPropertyShowcase />

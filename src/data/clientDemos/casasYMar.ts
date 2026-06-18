@@ -495,10 +495,17 @@ export const casasYMarDemo = {
       'https://wa.me/34629554870?text=Hola,%20quiero%20ver%20c%C3%B3mo%20podr%C3%ADa%20quedar%20una%20pieza%20visual%20para%20mi%20propiedad.',
     secondaryCta: 'LLAMAR AL 629 554 870',
     secondaryHref: 'tel:+34629554870',
+    pieceCta: 'VER EXPERIENCIA VISUAL DE PROPIEDAD',
+    // Public, client-facing final product (clean, animated, no editor).
+    embedUrl:
+      'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/casas-y-mar-visita-propiedad/?embed=1',
+    standaloneUrl:
+      'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/casas-y-mar-visita-propiedad/',
+    horizontalUrl:
+      'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/casas-y-mar-visita-propiedad/banner-horizontal.html',
+    verticalUrl:
+      'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/casas-y-mar-visita-propiedad/banner-vertical.html',
     chips: ['Tour 360', 'Galería', 'QR', 'Visita desde móvil', 'Torrevieja'],
-    // Internal reference only — never used as a public CTA destination.
-    internalToolUrl:
-      'https://rubik-sota-director-de-orquesta.vercel.app/gesture-lab/dynamic-motion-banners/rubik-sota-dynamic-motion-banners-casas-y-mar-v1.html',
   },
 
   highIntentContact: {

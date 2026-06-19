@@ -1,0 +1,126 @@
+{
+  "productionPlan": {
+    "slug": "sandhouse-inmobiliaria",
+    "clientName": "Sandhouse Inmobiliaria",
+    "targetRoutes": {
+      "visualExperience": "https://aurum-properties-boutique.vercel.app/sandhouse-inmobiliaria/visual-experience",
+      "landing": "https://aurum-properties-boutique.vercel.app/sandhouse-inmobiliaria",
+      "webCompleta": "https://aurum-properties-boutique.vercel.app/sandhouse-inmobiliaria/web-completa",
+      "bannerPack": "https://aurum-properties-boutique.vercel.app/banners/sandhouse-inmobiliaria",
+      "bannerVertical": "https://aurum-properties-boutique.vercel.app/banners/sandhouse-inmobiliaria/vertical",
+      "bannerHorizontal": "https://aurum-properties-boutique.vercel.app/banners/sandhouse-inmobiliaria/horizontal"
+    },
+    "branches": {
+      "rubik": "production/sandhouse-inmobiliaria-visual-assets",
+      "aurum": "production/sandhouse-inmobiliaria-public-pages"
+    },
+    "pullRequests": {},
+    "fourHooks": {
+      "visualExperience": {
+        "label": "Experiencia Visual de Propiedad",
+        "status": "planned",
+        "targetUrl": "https://aurum-properties-boutique.vercel.app/sandhouse-inmobiliaria/visual-experience",
+        "purpose": "Primer impacto visual interactivo para captar atencion."
+      },
+      "landing": {
+        "label": "Landing Comercial Personalizada",
+        "status": "planned",
+        "targetUrl": "https://aurum-properties-boutique.vercel.app/sandhouse-inmobiliaria",
+        "purpose": "Pagina breve para explicar oportunidad, CTA y siguiente paso."
+      },
+      "webCompleta": {
+        "label": "Web Desarrollada Completa",
+        "status": "planned",
+        "targetUrl": "https://aurum-properties-boutique.vercel.app/sandhouse-inmobiliaria/web-completa",
+        "purpose": "Demo completa con narrativa, servicios, visual experience y CTA."
+      },
+      "bannerPack": {
+        "label": "Pack de Banners Personalizados",
+        "status": "planned",
+        "targetUrl": "https://aurum-properties-boutique.vercel.app/banners/sandhouse-inmobiliaria",
+        "verticalUrl": "https://aurum-properties-boutique.vercel.app/banners/sandhouse-inmobiliaria/vertical",
+        "horizontalUrl": "https://aurum-properties-boutique.vercel.app/banners/sandhouse-inmobiliaria/horizontal",
+        "purpose": "Creatividades vertical/horizontal para campanas y remarketing."
+      }
+    },
+    "qaChecklist": [
+      "Validar derechos de assets.",
+      "Confirmar copy sin contenido cruzado.",
+      "Verificar PR Rubik.",
+      "Verificar PR AURUM.",
+      "Verificar que dispatch real sigue bloqueado."
+    ],
+    "status": "review_required",
+    "note": "v0.2 does not touch App.tsx or create public routes yet."
+  },
+  "proposalPackage": {
+    "clientName": "Sandhouse Inmobiliaria",
+    "slug": "sandhouse-inmobiliaria",
+    "sector": "residencial",
+    "score": null,
+    "painDetected": "url_pendiente_confirmar",
+    "opportunityDetected": "experiencia_visual_premium",
+    "fourHooks": {
+      "visualExperience": {
+        "label": "Experiencia Visual de Propiedad",
+        "status": "planned",
+        "targetUrl": "https://aurum-properties-boutique.vercel.app/sandhouse-inmobiliaria/visual-experience",
+        "purpose": "Primer impacto visual interactivo para captar atencion."
+      },
+      "landing": {
+        "label": "Landing Comercial Personalizada",
+        "status": "planned",
+        "targetUrl": "https://aurum-properties-boutique.vercel.app/sandhouse-inmobiliaria",
+        "purpose": "Pagina breve para explicar oportunidad, CTA y siguiente paso."
+      },
+      "webCompleta": {
+        "label": "Web Desarrollada Completa",
+        "status": "planned",
+        "targetUrl": "https://aurum-properties-boutique.vercel.app/sandhouse-inmobiliaria/web-completa",
+        "purpose": "Demo completa con narrativa, servicios, visual experience y CTA."
+      },
+      "bannerPack": {
+        "label": "Pack de Banners Personalizados",
+        "status": "planned",
+        "targetUrl": "https://aurum-properties-boutique.vercel.app/banners/sandhouse-inmobiliaria",
+        "verticalUrl": "https://aurum-properties-boutique.vercel.app/banners/sandhouse-inmobiliaria/vertical",
+        "horizontalUrl": "https://aurum-properties-boutique.vercel.app/banners/sandhouse-inmobiliaria/horizontal",
+        "purpose": "Creatividades vertical/horizontal para campanas y remarketing."
+      }
+    },
+    "proposalSummary": "Sandhouse Inmobiliaria: propuesta de 4 ganchos Immersphere para convertir auditoria y activos disponibles en una experiencia comercial revisable antes de produccion.",
+    "whatsappMessage": "Hola, Sandhouse Inmobiliaria. Hemos preparado una propuesta visual con 4 piezas: experiencia visual, landing, web completa y banners. La idea es revisar juntos el enfoque antes de publicar nada definitivo.",
+    "emailSubject": "Propuesta visual Immersphere para Sandhouse Inmobiliaria",
+    "emailBody": "Hola,\n\nHemos preparado un paquete de propuesta para Sandhouse Inmobiliaria basado en la auditoria y los activos disponibles.\n\nIncluye:\n- Experiencia Visual de Propiedad\n- Landing Comercial Personalizada\n- Web Desarrollada Completa\n- Pack de Banners vertical/horizontal\n\nTodo queda en revision humana antes de merge, deploy o envio final.\n\nUn saludo.",
+    "callScript": "Abrir con el dolor detectado: url_pendiente_confirmar. Presentar la oportunidad como showroom comercial revisable: experiencia_visual_premium. Cerrar proponiendo revisar los 4 ganchos antes de publicar.",
+    "followUpMessage": "Te dejo preparada la propuesta visual de Sandhouse Inmobiliaria. Cuando quieras, revisamos juntos que piezas priorizar para la primera version.",
+    "internalNotes": [
+      "No enviar automaticamente desde v0.2.",
+      "No marcar generated hasta validar URLs reales 200.",
+      "No conectar CRM estatico con token server-side."
+    ],
+    "reviewChecklist": [
+      "Validar derechos de assets.",
+      "Confirmar copy sin contenido cruzado.",
+      "Verificar PR Rubik.",
+      "Verificar PR AURUM.",
+      "Verificar que dispatch real sigue bloqueado."
+    ],
+    "plannedBranches": {
+      "rubik": "production/sandhouse-inmobiliaria-visual-assets",
+      "aurum": "production/sandhouse-inmobiliaria-public-pages"
+    },
+    "targetPRs": {
+      "rubik": {
+        "repo": "Juanmaes83/Rubik-Sota-Director-de-Orquesta",
+        "baseBranch": "main",
+        "headBranch": "production/sandhouse-inmobiliaria-visual-assets"
+      },
+      "aurum": {
+        "repo": "Juanmaes83/AURUM_PROPERTIES_BOUTIQUE",
+        "baseBranch": "main",
+        "headBranch": "production/sandhouse-inmobiliaria-public-pages"
+      }
+    }
+  }
+}

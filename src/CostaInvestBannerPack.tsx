@@ -52,6 +52,8 @@ export function CostaInvestBannerPack() {
           <a
             key={b.id}
             href={b.localHref}
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: 'flex',
               alignItems: 'center',

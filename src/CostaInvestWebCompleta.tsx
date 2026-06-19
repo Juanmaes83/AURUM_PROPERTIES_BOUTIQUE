@@ -1,6 +1,8 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useInView } from 'framer-motion';
+import { gsap } from 'gsap';
+import SplitType from 'split-type';
 import { MapPin, Phone, Mail, Globe, Star, ChevronRight, ExternalLink, Check, ArrowRight, Users, Zap, BarChart3 } from 'lucide-react';
 import { CustomCursor } from './components/CustomCursor';
 import { GridOverlay } from './components/GridOverlay';
@@ -79,6 +81,24 @@ function SectionReveal({ children, className = '' }: { children: React.ReactNode
 export const CostaInvestWebCompleta = () => {
   useSmoothScroll();
   const cfg = costaInvestDemo;
+  const headlineRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (!headlineRef.current) return;
+    const text = new SplitType(headlineRef.current, { types: 'words' });
+    const ctx = gsap.context(() => {
+      gsap.from(text.words ?? [], {
+        yPercent: 100,
+        rotate: 4,
+        opacity: 0,
+        duration: 1.4,
+        stagger: 0.05,
+        ease: 'expo.out',
+        delay: 0.4,
+      });
+    });
+    return () => { text.revert(); ctx.revert(); };
+  }, []);
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -136,13 +156,27 @@ export const CostaInvestWebCompleta = () => {
 
         {/* ─── HERO ─── */}
         <section id="hero" className="relative min-h-screen overflow-hidden flex items-center">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ opacity: 0.42 }}
+          >
+            <source src="/VIDEO_AURUM_HEROWEB.mp4" type="video/mp4" />
+          </video>
+          {/* Fallback visible while video loads */}
           <img
             src="/costainvest/place-to-live.jpg"
-            alt="Costa Invest · Playa Flamenca"
-            className="absolute inset-0 w-full h-full object-cover opacity-40"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover opacity-35"
+            style={{ zIndex: -1 }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
 
           <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 py-24 grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
             <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
@@ -151,7 +185,10 @@ export const CostaInvestWebCompleta = () => {
                 <span className="text-[10px] tracking-[0.26em] uppercase text-[#A68B5B] font-mono">Web Desarrollada Completa</span>
               </div>
 
-              <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.92] max-w-3xl">
+              <h1
+                ref={headlineRef}
+                className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.92] max-w-3xl overflow-hidden"
+              >
                 Propiedades que se deciden antes de cruzar la frontera.
               </h1>
 

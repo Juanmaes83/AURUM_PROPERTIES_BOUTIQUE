@@ -3,7 +3,7 @@ export const proposalPackage = {
   "slug": "sandhouse-inmobiliaria",
   "sector": "residencial",
   "score": null,
-  "painDetected": "url_pendiente_confirmar",
+  "painDetected": "Sandhouse Inmobiliaria compite en Torrevieja, uno de los mercados inmobiliarios más activos de la Costa Blanca. En un entorno donde la diferenciación visual decide qué agencia capta al comprador primero, hay una oportunidad clara de elevar su presentación digital al nivel del servicio que ya ofrecen.",
   "opportunityDetected": "experiencia_visual_premium",
   "fourHooks": {
     "visualExperience": {
@@ -33,11 +33,11 @@ export const proposalPackage = {
       "purpose": "Creatividades vertical/horizontal para campanas y remarketing."
     }
   },
-  "proposalSummary": "Sandhouse Inmobiliaria: propuesta de 4 ganchos Immersphere para convertir auditoria y activos disponibles en una experiencia comercial revisable antes de produccion.",
+  "proposalSummary": "Sandhouse Inmobiliaria, agencia ubicada en Torrevieja (Costa Blanca), recibe una propuesta Immersphere de 4 ganchos comerciales — experiencia visual interactiva, landing personalizada, web completa y pack de banners — para diferenciar la presentación de sus propiedades y captar compradores con mayor impacto visual.",
   "whatsappMessage": "Hola, Sandhouse Inmobiliaria. Hemos preparado una propuesta visual con 4 piezas: experiencia visual, landing, web completa y banners. La idea es revisar juntos el enfoque antes de publicar nada definitivo.",
   "emailSubject": "Propuesta visual Immersphere para Sandhouse Inmobiliaria",
   "emailBody": "Hola,\n\nHemos preparado un paquete de propuesta para Sandhouse Inmobiliaria basado en la auditoria y los activos disponibles.\n\nIncluye:\n- Experiencia Visual de Propiedad\n- Landing Comercial Personalizada\n- Web Desarrollada Completa\n- Pack de Banners vertical/horizontal\n\nTodo queda en revision humana antes de merge, deploy o envio final.\n\nUn saludo.",
-  "callScript": "Abrir con el dolor detectado: url_pendiente_confirmar. Presentar la oportunidad como showroom comercial revisable: experiencia_visual_premium. Cerrar proponiendo revisar los 4 ganchos antes de publicar.",
+  "callScript": "Buenos días, llamo de Immersphere. Hemos revisado Sandhouse Inmobiliaria y hemos visto una oportunidad clara: convertir la presentación digital de sus propiedades en una experiencia visual más premium, diferenciadora y orientada a captar compradores antes que la competencia local. Hemos preparado 4 piezas revisables: experiencia visual interactiva, landing comercial, web completa y banners para campañas. ¿Tienen 10 minutos para revisarlo juntos antes de publicar nada definitivo?",
   "followUpMessage": "Te dejo preparada la propuesta visual de Sandhouse Inmobiliaria. Cuando quieras, revisamos juntos que piezas priorizar para la primera version.",
   "internalNotes": [
     "No enviar automaticamente desde v0.2.",

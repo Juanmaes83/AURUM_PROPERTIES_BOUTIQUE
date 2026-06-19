@@ -53,7 +53,7 @@
   },
   visualExperience: {
     embedUrl: 'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/costa-invest/?embed=1',
-    standaloneUrl: 'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/costa-invest/',
+    standaloneUrl: 'https://aurum-properties-boutique.vercel.app/visual-experience/costa-invest',
     previewImage: '/costainvest/property-1.jpg',
     previewSecondaryImage: '/costainvest/property-2.jpg',
     previewTertiaryImage: '/costainvest/property-3.jpg',

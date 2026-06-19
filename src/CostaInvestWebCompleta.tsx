@@ -14,12 +14,9 @@ import { costaInvestDemo } from './data/clientDemos/costaInvest';
 const waHref = costaInvestDemo.highIntentContact.primaryHref;
 const phoneHref = costaInvestDemo.highIntentContact.secondaryHref;
 
-const BANNER_VERTICAL_URL =
-  'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/costa-invest/banner-pack/vertical/';
-const BANNER_HORIZONTAL_URL =
-  'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/costa-invest/banner-pack/horizontal/';
-const BANNER_PACK_URL =
-  'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/costa-invest/banner-pack/';
+const BANNER_VERTICAL_URL = '/banners/costa-invest/vertical';
+const BANNER_HORIZONTAL_URL = '/banners/costa-invest/horizontal';
+const BANNER_PACK_URL = '/banners/costa-invest';
 
 const services = [
   {

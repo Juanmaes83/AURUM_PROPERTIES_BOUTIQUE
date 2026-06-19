@@ -4,7 +4,7 @@ export const proposalPackage = {
   "sector": "residencial",
   "score": null,
   "painDetected": "Sandhouse Inmobiliaria compite en Torrevieja, uno de los mercados inmobiliarios más activos de la Costa Blanca. En un entorno donde la diferenciación visual decide qué agencia capta al comprador primero, hay una oportunidad clara de elevar su presentación digital al nivel del servicio que ya ofrecen.",
-  "opportunityDetected": "experiencia_visual_premium",
+  "opportunityDetected": "presentacion_visual_inmobiliaria_premium",
   "fourHooks": {
     "visualExperience": {
       "label": "Experiencia Visual de Propiedad",

@@ -121,7 +121,7 @@ export const EmbassyLevanteWebCompleta = () => {
       {/* Fixed header */}
       <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3 border-b border-[#c4a96a]/20 bg-black/80 backdrop-blur-md">
         <div className="flex items-center gap-3">
-          <span className="font-serif text-[#c4a96a] text-base tracking-wide">Embassy Levante</span>
+          <img src={cfg.client.logo.url} alt="Embassy Levante" className="h-7 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
           <span className="hidden sm:block text-[10px] tracking-[0.24em] uppercase text-[#c4a96a] font-mono">Web Desarrollada Completa</span>
         </div>
         <div className="flex items-center gap-4">
@@ -173,7 +173,7 @@ export const EmbassyLevanteWebCompleta = () => {
           <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 py-24 grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
             <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
               <div className="inline-flex items-center gap-3 border border-[#c4a96a]/40 bg-black/40 px-4 py-2 backdrop-blur-sm mb-8">
-                <span className="font-serif text-[#c4a96a] text-sm tracking-wide">Embassy Levante</span>
+                <img src={cfg.client.logo.url} alt="Embassy Levante" className="h-7 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
                 <span className="text-[10px] tracking-[0.26em] uppercase text-[#c4a96a] font-mono">Web Desarrollada Completa</span>
               </div>
 
@@ -397,6 +397,7 @@ export const EmbassyLevanteWebCompleta = () => {
           <VisualExperienceBannerSection
             clientName={cfg.client.name}
             clientLocation={cfg.client.location}
+            clientLogo={cfg.client.logo.url}
             whatsappHref={waHref}
             phoneHref={phoneHref}
             visiblePhone={cfg.client.phone}
@@ -404,6 +405,9 @@ export const EmbassyLevanteWebCompleta = () => {
             standaloneUrl={cfg.visualExperience.standaloneUrl}
             horizontalUrl={BANNER_HORIZONTAL_URL}
             verticalUrl={BANNER_VERTICAL_URL}
+            previewImage={cfg.visualExperience.previewImage}
+            previewSecondaryImage={cfg.visualExperience.previewSecondaryImage}
+            previewTertiaryImage={cfg.visualExperience.previewTertiaryImage}
             chips={cfg.visualExperience.chips}
             eyebrow={cfg.visualExperience.eyebrow}
             title={cfg.visualExperience.title}
@@ -431,32 +435,21 @@ export const EmbassyLevanteWebCompleta = () => {
 
             <div className="grid gap-6 md:grid-cols-3">
               {[
-                { label: 'Apartamento vacacional', sub: 'Torrevieja Centro · Vista al lago', badge: 'Destacado', size: '80 m² · 2 hab.' },
-                { label: 'Villa con piscina privada', sub: 'La Mata · Torrevieja', badge: 'Exclusivo', size: '210 m² · 4 hab.' },
-                { label: 'Piso primera línea', sub: 'Playa de los Locos · Torrevieja', badge: 'Oportunidad', size: '70 m² · 2 hab.' },
-              ].map(({ label, sub, badge, size }) => (
+                { src: cfg.assets.images[0], label: 'Propiedad destacada', sub: 'Torrevieja Centro · Vista al lago' },
+                { src: cfg.assets.images[1], label: 'Vivienda premium', sub: 'La Mata · Torrevieja · Costa Blanca' },
+                { src: cfg.assets.images[2], label: 'Piso de inversión', sub: 'Playa de los Locos · Torrevieja' },
+              ].map(({ src, label, sub }) => (
                 <SectionReveal key={label}>
                   <div className="group relative overflow-hidden border border-white/10">
-                    <div
-                      className="w-full aspect-[3/4] flex items-center justify-center relative"
-                      style={{ background: 'linear-gradient(160deg, #1a1510 0%, #231c12 40%, #0d0b09 100%)' }}
-                    >
-                      <div
-                        className="absolute inset-0"
-                        style={{ backgroundImage: 'radial-gradient(ellipse 70% 60% at 35% 40%, rgba(196,169,106,0.12) 0%, transparent 65%)' }}
-                      />
-                      <div className="absolute top-4 right-4 text-[10px] font-mono text-black bg-[#c4a96a] px-2 py-1 tracking-[0.14em] uppercase">{badge}</div>
-                      <div className="flex flex-col items-center gap-3 opacity-15">
-                        <div className="w-px h-14 bg-[#c4a96a]" />
-                        <div className="w-5 h-5 border border-[#c4a96a]" style={{ transform: 'rotate(45deg)' }} />
-                        <div className="w-px h-14 bg-[#c4a96a]" />
-                      </div>
-                    </div>
+                    <img
+                      src={src}
+                      alt={label}
+                      className="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <div className="text-[10px] tracking-[0.2em] text-[#c4a96a] font-mono uppercase mb-1">{sub}</div>
-                      <div className="font-serif text-lg text-white mb-1">{label}</div>
-                      <div className="text-xs text-[#888]">{size}</div>
+                      <div className="font-serif text-lg text-white">{label}</div>
                     </div>
                   </div>
                 </SectionReveal>
@@ -618,20 +611,18 @@ export const EmbassyLevanteWebCompleta = () => {
             </SectionReveal>
 
             <SectionReveal>
-              <div className="border border-[#c4a96a]/20 bg-[#0e0c0a] p-10 flex flex-col gap-8">
-                <div className="text-[10px] tracking-[0.28em] text-[#c4a96a] font-mono uppercase">El argumento visual de Embassy Levante</div>
-                {[
-                  { step: '01', desc: 'El agente llega a la reunión con el propietario con la experiencia visual ya creada para esa propiedad concreta en Torrevieja.' },
-                  { step: '02', desc: 'El propietario ve exactamente cómo se presentará su vivienda en WhatsApp, web y campaña digital antes de firmar.' },
-                  { step: '03', desc: 'La decisión de firmar el mandato con Embassy Levante es más fácil y más rápida que con cualquier agencia de la competencia.' },
-                ].map((item) => (
-                  <div key={item.step} className="flex items-start gap-5">
-                    <span className="text-3xl font-serif text-[#c4a96a]/30 shrink-0">{item.step}</span>
-                    <p className="text-[#D8D1C7] leading-relaxed">{item.desc}</p>
+              <div className="relative">
+                <img
+                  src={cfg.assets.lifestyle[0]}
+                  alt="Embassy Levante · Torrevieja"
+                  className="w-full aspect-square object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="flex items-center gap-3">
+                    <img src={cfg.client.logo.url} alt="Embassy Levante" className="h-6 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+                    <span className="text-xs text-[#c4a96a] font-mono tracking-[0.16em] uppercase">Torrevieja · Costa Blanca</span>
                   </div>
-                ))}
-                <div className="flex items-center gap-2 border-t border-white/8 pt-6">
-                  <span className="text-xs text-[#c4a96a] font-mono tracking-[0.16em] uppercase">Embassy Levante · Torrevieja · Costa Blanca</span>
                 </div>
               </div>
             </SectionReveal>
@@ -707,7 +698,7 @@ export const EmbassyLevanteWebCompleta = () => {
         <footer className="border-t border-white/10 px-6 md:px-12 py-16">
           <div className="max-w-6xl mx-auto grid gap-8 md:grid-cols-[1fr_1fr_1fr]">
             <div className="flex flex-col gap-4">
-              <span className="font-serif text-[#c4a96a] text-lg tracking-wide self-start">Embassy Levante</span>
+              <img src={cfg.client.logo.url} alt="Embassy Levante" className="h-8 w-auto self-start" style={{ filter: 'brightness(0) invert(1)' }} />
               <p className="text-sm text-[#777] leading-relaxed max-w-xs">
                 {cfg.client.sector} · {cfg.client.location}
               </p>

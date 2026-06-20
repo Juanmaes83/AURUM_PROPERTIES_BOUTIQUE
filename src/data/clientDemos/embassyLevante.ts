@@ -10,6 +10,12 @@ export const embassyLevanteDemo = {
     address: 'Torrevieja, Alicante',
     claim:
       'El propietario quiere saber cómo venderéis su vivienda. Immersphere lo muestra antes de firmar.',
+    logo: {
+      url: '/embassylevante/website-logo.png',
+      status: 'public_candidate_pending_validation' as const,
+      notes:
+        'Logo descargado desde la web pública de Embassy Levante (https://www.embassylevante.com/img/header/logo.png). Se usa como asset candidato hasta validación oficial por parte del cliente.',
+    },
   },
   audit: {
     score: 64,
@@ -52,6 +58,9 @@ export const embassyLevanteDemo = {
       'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/embassy-levante/?embed=1',
     standaloneUrl:
       'https://aurum-properties-boutique.vercel.app/visual-experience/embassy-levante',
+    previewImage: '/IMAGEN_AURUM_HEROWEB_2.jpeg',
+    previewSecondaryImage: '/IMAGEN_AURUM_INTERIORES.png',
+    previewTertiaryImage: '/IMAGEN_AURUM_ESTILODEVIDA.png',
     chips: ['Captación propietarios', 'Torrevieja', 'WhatsApp', 'Costa Blanca', 'Argumento visual'],
     eyebrow: 'EXPERIENCIA VISUAL DE CAPTACIÓN',
     title: 'Muéstrale al propietario cómo quedará su vivienda antes de firmar.',
@@ -88,5 +97,16 @@ export const embassyLevanteDemo = {
   },
   salesContact: {
     visiblePhone: '+34 691 502 743',
+  },
+  assets: {
+    images: [
+      '/IMAGEN_AURUM_HEROWEB_2.jpeg',
+      '/IMAGEN_AURUM_INTERIORES.png',
+      '/IMAGEN_AURUM_ESTILODEVIDA.png',
+    ],
+    lifestyle: ['/IMAGEN_AURUM_ESTILODEVIDA.png', '/IMAGEN_AURUM_HEROWEB.png'],
+    status: 'public_candidate_pending_validation' as const,
+    notes:
+      'Assets visuales candidatos (imágenes genéricas AURUM) hasta que Embassy Levante aporte fotos reales de sus propiedades en Torrevieja.',
   },
 };

@@ -168,6 +168,7 @@ export const EmbassyLevanteLanding = () => {
         <VisualExperienceBannerSection
           clientName={cfg.client.name}
           clientLocation={cfg.client.location}
+          clientLogo={cfg.client.logo.url}
           whatsappHref={waHref}
           phoneHref={phoneHref}
           visiblePhone={cfg.salesContact.visiblePhone}
@@ -175,6 +176,9 @@ export const EmbassyLevanteLanding = () => {
           standaloneUrl={cfg.visualExperience.standaloneUrl}
           horizontalUrl="/banners/embassy-levante/horizontal"
           verticalUrl="/banners/embassy-levante/vertical"
+          previewImage={cfg.visualExperience.previewImage}
+          previewSecondaryImage={cfg.visualExperience.previewSecondaryImage}
+          previewTertiaryImage={cfg.visualExperience.previewTertiaryImage}
           chips={cfg.visualExperience.chips}
           eyebrow={cfg.visualExperience.eyebrow}
           title={cfg.visualExperience.title}

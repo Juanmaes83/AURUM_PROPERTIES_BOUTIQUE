@@ -1,8 +1,10 @@
 import type { PremiumFourHookSpecs } from './types/fourHookSpecs';
 import { sandhouseInmobiliariaFourHookSpecs } from './sandhouseInmobiliariaFourHookSpecs';
+import { embassyLevanteFourHookSpecs } from './embassyLevanteFourHookSpecs';
 
 const REGISTRY: Record<string, PremiumFourHookSpecs> = {
   'sandhouse-inmobiliaria': sandhouseInmobiliariaFourHookSpecs,
+  'embassy-levante': embassyLevanteFourHookSpecs,
 };
 
 export function getFourHookSpecsBySlug(slug: string): PremiumFourHookSpecs | null {

@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { SpecPreviewRouter } from './generated/renderers/SpecPreviewRouter';
 import { AurumOriginal } from './AurumOriginal';
 import { CasasYMarDemo } from './CasasYMarDemo';
 import { CostaInvestDemo } from './CostaInvestDemo';
@@ -33,6 +34,14 @@ function App() {
       <Route path="/banners/sandhouse-inmobiliaria" element={<SandhouseBannerPack />} />
       <Route path="/banners/sandhouse-inmobiliaria/vertical" element={<SandhouseBannerVertical />} />
       <Route path="/banners/sandhouse-inmobiliaria/horizontal" element={<SandhouseBannerHorizontal />} />
+
+      {/* Spec preview routes — rendered from premiumSpecs, do not conflict with manual routes above */}
+      <Route path="/preview/:slug" element={<SpecPreviewRouter view="landing" />} />
+      <Route path="/preview/:slug/visual-experience" element={<SpecPreviewRouter view="visualExperience" />} />
+      <Route path="/preview/:slug/web-completa" element={<SpecPreviewRouter view="fullWebsite" />} />
+      <Route path="/preview/:slug/banners" element={<SpecPreviewRouter view="bannerPack" />} />
+      <Route path="/preview/:slug/banners/vertical" element={<SpecPreviewRouter view="bannerVertical" />} />
+      <Route path="/preview/:slug/banners/horizontal" element={<SpecPreviewRouter view="bannerHorizontal" />} />
 
       {/* Sandhouse Inmobiliaria — alias routes */}
       <Route path="/visual-experience/sandhouse-inmobiliaria" element={<SandhouseVisualExperience />} />

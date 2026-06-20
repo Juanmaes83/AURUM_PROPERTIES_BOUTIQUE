@@ -1,0 +1,616 @@
+import { useRef, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { motion, useInView } from 'framer-motion';
+import { gsap } from 'gsap';
+import SplitType from 'split-type';
+import { MapPin, Phone, Mail, Globe, Star, ChevronRight, ExternalLink, Check, ArrowRight, Users, Zap, BarChart3 } from 'lucide-react';
+import { CustomCursor } from './components/CustomCursor';
+import { GridOverlay } from './components/GridOverlay';
+import { useSmoothScroll } from './hooks/useSmoothScroll';
+import { CurrentWebsiteComparisonSection } from './components/clientDemo/CurrentWebsiteComparisonSection';
+import { ImmersphereServicesSection } from './components/clientDemo/ImmersphereServicesSection';
+import { HighIntentContactSection } from './components/clientDemo/HighIntentContactSection';
+import { VisualExperienceBannerSection } from './components/clientDemo/VisualExperienceBannerSection';
+import { casasEspaniaDemo } from './data/clientDemos/casasEspania';
+
+const waHref = casasEspaniaDemo.highIntentContact.primaryHref;
+const phoneHref = casasEspaniaDemo.highIntentContact.secondaryHref;
+
+const BANNER_VERTICAL_URL = '/banners/casas-espania/vertical';
+const BANNER_HORIZONTAL_URL = '/banners/casas-espania/horizontal';
+const BANNER_PACK_URL = '/banners/casas-espania';
+
+const services = [
+  {
+    num: '01',
+    title: 'Experiencia Visual de Propiedad',
+    body: 'Pieza animada personalizada para Casas Espania: captación de propietarios con argumento visual, QR de contacto y CTA directo. Lista para enviar por WhatsApp antes de firmar el mandato.',
+    detail: 'Canvas 2D · QR · Embed',
+  },
+  {
+    num: '02',
+    title: 'Landing Comercial Personalizada',
+    body: 'Página de propuesta adaptada al perfil de Casas Espania: diagnóstico, comparativa, experiencia visual integrada y contacto directo. Pensada para enviar a propietarios y decisores en Torrevieja.',
+    detail: 'Web premium · Datos reales · Mobile-first',
+  },
+  {
+    num: '03',
+    title: 'Web Desarrollada Completa',
+    body: 'Presencia digital de nivel superior con narrativa de captación de propietarios, galería editorial, sección de confianza y proceso completo de Casas Espania en Torrevieja y la Costa Blanca.',
+    detail: 'Storytelling · Galería · SEO · CTA múltiple',
+  },
+  {
+    num: '04',
+    title: 'Pack de Banners Personalizados',
+    body: 'Formatos vertical 9:16 y horizontal 16:9 con la identidad de Casas Espania. Para stories, WhatsApp, captación de propietarios y campaña digital de presencia en Torrevieja.',
+    detail: '1080×1920 · 1920×1080 · QR incluido',
+  },
+];
+
+const process = [
+  { step: '01', title: 'Auditoría', body: 'Analizamos la presencia digital de Casas Espania: web, buscadores, redes y activos visuales. Identificamos la oportunidad real de captación en Torrevieja.' },
+  { step: '02', title: 'Briefing', body: 'Elegimos la propiedad o campaña piloto. Recogemos los activos disponibles (fotos, logo, copy) y definimos el argumento visual para el propietario.' },
+  { step: '03', title: 'Generación', body: 'Creamos la experiencia visual, la landing y el pack de banners en 3-7 días. Cada pieza está revisada y lista para usar como argumento de captación.' },
+  { step: '04', title: 'Publicación', body: 'Publicamos con URL limpia, embed disponible y QR. Todo listo para enviar por WhatsApp al propietario antes de la primera reunión.' },
+  { step: '05', title: 'Medición', body: 'Seguimos el rendimiento: consultas generadas, propietarios captados, calidad del argumento visual. Ajustamos para maximizar conversión en cada propiedad.' },
+];
+
+const markets = [
+  { flag: '🇬🇧', label: 'Mercado británico', desc: 'Compradores UK que buscan vivienda vacacional y residencial en Torrevieja. Alta demanda de propiedades cerca del mar con decisión remota frecuente.' },
+  { flag: '🇳🇱', label: 'Mercado holandés', desc: 'Alta demanda de segunda residencia en la Costa Blanca. El activo visual acelera la decisión desde el móvil antes del primer viaje.' },
+  { flag: '🇧🇪', label: 'Mercado belga', desc: 'Perfil inversor con alto poder adquisitivo. La experiencia visual reduce objeciones antes del primer contacto con el agente de Casas Espania.' },
+  { flag: '🇩🇪', label: 'Mercado alemán', desc: 'Comprador exigente que valora la calidad de presentación. La experiencia visual posiciona a Casas Espania por encima de la competencia local.' },
+];
+
+function SectionReveal({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 32 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export const CasasEspaniaWebCompleta = () => {
+  useSmoothScroll();
+  const cfg = casasEspaniaDemo;
+  const headlineRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (!headlineRef.current) return;
+    const text = new SplitType(headlineRef.current, { types: 'words' });
+    const ctx = gsap.context(() => {
+      gsap.from(text.words ?? [], {
+        yPercent: 100,
+        rotate: 4,
+        opacity: 0,
+        duration: 1.4,
+        stagger: 0.05,
+        ease: 'expo.out',
+        delay: 0.4,
+      });
+    });
+    return () => { text.revert(); ctx.revert(); };
+  }, []);
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>Casas Espania · Web Desarrollada Completa · Immersphere Pro</title>
+        <meta
+          name="description"
+          content="Propuesta web completa para Casas Espania: captación de propietarios con experiencia visual, activos de campaña y presencia digital diferenciada en Torrevieja y la Costa Blanca."
+        />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+
+      <GridOverlay />
+      <CustomCursor />
+
+      {/* Fixed header */}
+      <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3 border-b border-[#c4a96a]/20 bg-black/80 backdrop-blur-md">
+        <div className="flex items-center gap-3">
+          <img src={cfg.client.logo.url} alt="Casas Espania" className="h-7 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+          <span className="hidden sm:block text-[10px] tracking-[0.24em] uppercase text-[#c4a96a] font-mono">Web Desarrollada Completa</span>
+        </div>
+        <div className="flex items-center gap-4">
+          <span className="text-[10px] tracking-[0.2em] uppercase text-[#c4a96a]/60 font-mono hidden md:block">Preview privada · Immersphere Pro</span>
+          <a href={waHref} target="_blank" rel="noopener noreferrer" className="text-[11px] font-bold tracking-[0.12em] uppercase bg-[#c4a96a] text-black px-4 py-2 hover:bg-[#d4b97a] transition-colors">WhatsApp</a>
+        </div>
+      </div>
+
+      {/* Nav */}
+      <nav className="fixed top-[49px] left-0 right-0 z-40 flex items-center gap-6 px-6 py-2 border-b border-white/5 bg-black/60 backdrop-blur-md overflow-x-auto">
+        {[
+          { id: 'hero', label: 'Inicio' },
+          { id: 'diagnosis', label: 'Diagnóstico' },
+          { id: 'visual-experience', label: 'Experiencia Visual' },
+          { id: 'mercados', label: 'Internacional' },
+          { id: 'servicios', label: 'Servicios' },
+          { id: 'proceso', label: 'Proceso' },
+          { id: 'contacto', label: 'Contactar' },
+        ].map(({ id, label }) => (
+          <button
+            key={id}
+            onClick={() => scrollTo(id)}
+            className="text-[10px] tracking-[0.18em] uppercase text-[#c4a96a]/70 hover:text-[#c4a96a] whitespace-nowrap transition-colors font-mono"
+          >
+            {label}
+          </button>
+        ))}
+      </nav>
+
+      <main className="bg-[#0B0B0C] text-[#F7F7F7] pt-[89px]">
+
+        {/* ─── HERO ─── */}
+        <section id="hero" className="relative min-h-screen overflow-hidden flex items-center">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ opacity: 0.38 }}
+          >
+            <source src="/VIDEO_AURUM_HEROWEB.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+
+          <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 py-24 grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
+            <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
+              <div className="inline-flex items-center gap-3 border border-[#c4a96a]/40 bg-black/40 px-4 py-2 backdrop-blur-sm mb-8">
+                <img src={cfg.client.logo.url} alt="Casas Espania" className="h-7 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+                <span className="text-[10px] tracking-[0.26em] uppercase text-[#c4a96a] font-mono">Web Desarrollada Completa</span>
+              </div>
+
+              <h1
+                ref={headlineRef}
+                className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.92] max-w-3xl overflow-hidden"
+              >
+                Captación de propietarios con argumento visual en Torrevieja.
+              </h1>
+
+              <p className="mt-8 max-w-xl text-lg md:text-xl text-[#D8D1C7] leading-relaxed">
+                Presencia digital de nivel superior para Casas Espania. Experiencia visual, captación de propietarios
+                con argumento real, activos de campaña y diferenciación frente a la competencia local en la Costa Blanca.
+              </p>
+
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                {['Torrevieja', 'Costa Blanca', 'Captación propietarios', 'WhatsApp · Web · Campaña'].map((chip) => (
+                  <span key={chip} className="text-[10px] tracking-[0.16em] uppercase text-[#c4a96a] border border-[#c4a96a]/30 px-3 py-1.5 font-mono">{chip}</span>
+                ))}
+              </div>
+
+              <div className="mt-10 flex flex-wrap gap-4">
+                <button
+                  onClick={() => scrollTo('visual-experience')}
+                  className="bg-[#c4a96a] text-black px-8 py-4 text-sm font-bold tracking-[0.14em] uppercase hover:bg-[#d4b97a] transition-colors"
+                >
+                  Ver Experiencia Visual
+                </button>
+                <button
+                  onClick={() => scrollTo('diagnosis')}
+                  className="border border-white/25 px-8 py-4 text-sm font-semibold tracking-[0.14em] uppercase hover:border-[#c4a96a] transition-colors"
+                >
+                  Ver Diagnóstico
+                </button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-black/50 border border-white/10 p-8 backdrop-blur-md"
+            >
+              <div className="text-[10px] tracking-[0.3em] text-[#c4a96a] font-mono uppercase mb-6">Diagnóstico Immersphere · CRM</div>
+              <div className="grid grid-cols-2 gap-6 mb-8">
+                <div>
+                  <div className="text-5xl font-serif text-[#F7F7F7]">{cfg.audit.score}</div>
+                  <div className="text-xs text-[#999] uppercase tracking-[0.2em] mt-1">Score CRM</div>
+                </div>
+                <div>
+                  <div className="text-5xl font-serif text-[#c4a96a]">{cfg.audit.priority}</div>
+                  <div className="text-xs text-[#999] uppercase tracking-[0.2em] mt-1">Prioridad</div>
+                </div>
+              </div>
+              <div className="space-y-2 mb-6">
+                {cfg.audit.strengths.map((s) => (
+                  <div key={s} className="flex items-start gap-3 border border-white/8 bg-white/[0.03] px-4 py-3">
+                    <Check size={14} className="text-[#c4a96a] mt-0.5 shrink-0" />
+                    <span className="text-sm text-[#D8D1C7]">{s}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="text-[10px] tracking-[0.18em] text-[#c4a96a]/60 font-mono uppercase">
+                {cfg.client.location}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ─── DIAGNÓSTICO ─── */}
+        <section id="diagnosis" className="py-28 md:py-36 px-6 md:px-12">
+          <div className="max-w-6xl mx-auto">
+            <SectionReveal>
+              <span className="text-[10px] tracking-[0.3em] text-[#c4a96a] font-mono uppercase">
+                Auditoría · Score {cfg.audit.score}/100 · Prioridad {cfg.audit.priority}
+              </span>
+              <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight max-w-3xl">
+                Casas Espania tiene contacto directo y presencia en Torrevieja. Falta el argumento visual que capta primero.
+              </h2>
+            </SectionReveal>
+
+            <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <SectionReveal className="lg:col-span-2">
+                <div className="border border-white/10 bg-white/[0.02] p-8 h-full">
+                  <div className="text-[10px] tracking-[0.28em] text-[#c4a96a] font-mono uppercase mb-6">Fortalezas detectadas</div>
+                  <div className="space-y-3">
+                    {cfg.audit.strengths.map((s, i) => (
+                      <div key={s} className="flex items-start gap-4">
+                        <span className="text-xs font-mono text-[#c4a96a] shrink-0 mt-0.5">0{i + 1}</span>
+                        <span className="text-[#D8D1C7] leading-relaxed">{s}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </SectionReveal>
+
+              <SectionReveal>
+                <div className="border border-[#c4a96a]/20 bg-[#c4a96a]/[0.04] p-8 h-full">
+                  <div className="text-[10px] tracking-[0.28em] text-[#c4a96a] font-mono uppercase mb-6">Oportunidades</div>
+                  <div className="space-y-4">
+                    {cfg.audit.opportunities.map((o) => (
+                      <div key={o} className="flex items-start gap-3">
+                        <Zap size={14} className="text-[#c4a96a] mt-1 shrink-0" />
+                        <span className="text-sm text-[#D8D1C7] leading-relaxed">{o}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </SectionReveal>
+            </div>
+
+            <SectionReveal className="mt-12">
+              <div className="border border-white/10 bg-white/[0.02] p-8">
+                <div className="text-[10px] tracking-[0.28em] text-[#c4a96a] font-mono uppercase mb-6">Situación actual</div>
+                <div className="grid gap-6 md:grid-cols-3">
+                  {[
+                    { icon: Globe, label: 'Web', val: 'casasespania.com', desc: 'Presencia web activa con propiedades y contacto directo con el agente responsable' },
+                    { icon: Phone, label: 'Contacto', val: '+34 966 785 202', desc: 'Contacto directo verificado: teléfono y email del responsable de Casas Espania' },
+                    { icon: Users, label: 'Mercado', val: 'Torrevieja', desc: 'Uno de los mercados inmobiliarios más activos de la Costa Blanca con alta demanda internacional' },
+                  ].map(({ icon: Icon, label, val, desc }) => (
+                    <div key={label} className="flex flex-col gap-2">
+                      <Icon size={20} className="text-[#c4a96a]" />
+                      <div className="text-[10px] font-mono tracking-[0.18em] text-[#999] uppercase">{label}</div>
+                      <div className="text-[#F7F7F7] font-semibold">{val}</div>
+                      <div className="text-sm text-[#888] leading-relaxed">{desc}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </SectionReveal>
+          </div>
+        </section>
+
+        {/* ─── ANTES / DESPUÉS ─── */}
+        <section className="py-24 px-6 md:px-12 bg-[#0F0E0C]">
+          <div className="max-w-6xl mx-auto">
+            <SectionReveal className="mb-14 text-center">
+              <span className="text-[10px] tracking-[0.3em] text-[#c4a96a] font-mono uppercase">Antes / Después</span>
+              <h2 className="mt-4 font-serif text-4xl md:text-5xl max-w-3xl mx-auto leading-tight">
+                De captación verbal a argumento visual que cierra mandatos.
+              </h2>
+            </SectionReveal>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <SectionReveal>
+                <div className="border border-white/10 bg-black/40 p-8 h-full">
+                  <div className="text-[10px] tracking-[0.28em] text-[#999] font-mono uppercase mb-6">Enfoque actual</div>
+                  <div className="space-y-4">
+                    {[
+                      'Propiedades presentadas con fotos estáticas',
+                      'Captación de propietarios con argumentos verbales',
+                      'Sin activos visuales para WhatsApp o campaña digital',
+                      'Misma experiencia que la competencia local en Torrevieja',
+                      'El propietario decide sin ver cómo se presentará su vivienda',
+                    ].map((item) => (
+                      <div key={item} className="flex items-start gap-3">
+                        <div className="w-4 h-4 border border-white/20 shrink-0 mt-0.5" />
+                        <span className="text-sm text-[#888]">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <a href={cfg.client.website} target="_blank" rel="noopener noreferrer"
+                    className="mt-8 inline-flex items-center gap-2 text-xs text-[#c4a96a] border border-[#c4a96a]/30 px-4 py-2 hover:border-[#c4a96a] transition-colors">
+                    <ExternalLink size={12} /> Ver web actual
+                  </a>
+                </div>
+              </SectionReveal>
+
+              <SectionReveal>
+                <div className="border border-[#c4a96a]/30 bg-[#c4a96a]/[0.04] p-8 h-full">
+                  <div className="text-[10px] tracking-[0.28em] text-[#c4a96a] font-mono uppercase mb-6">Propuesta Immersphere</div>
+                  <div className="space-y-4">
+                    {[
+                      'Experiencia visual animada con la propiedad lista antes de la reunión',
+                      'Argumento visual concreto: el propietario ve cómo quedará su vivienda',
+                      'QR de contacto directo para enviar por WhatsApp antes de firmar el mandato',
+                      'Landing personalizada con diagnóstico y comparativa para decisores',
+                      'Pack de banners verticales y horizontales para captación y campaña',
+                    ].map((item) => (
+                      <div key={item} className="flex items-start gap-3">
+                        <Check size={16} className="text-[#c4a96a] shrink-0 mt-0.5" />
+                        <span className="text-sm text-[#D8D1C7]">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => scrollTo('visual-experience')}
+                    className="mt-8 inline-flex items-center gap-2 text-xs text-black bg-[#c4a96a] px-4 py-2 hover:bg-[#d4b97a] transition-colors font-bold tracking-[0.12em] uppercase"
+                  >
+                    Ver experiencia <ArrowRight size={12} />
+                  </button>
+                </div>
+              </SectionReveal>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── COMPARATIVA WEB ACTUAL ─── */}
+        <CurrentWebsiteComparisonSection
+          clientName={cfg.client.name}
+          currentWebsiteUrl={cfg.client.website}
+          eyebrow={cfg.comparison.eyebrow}
+          title={cfg.comparison.title}
+          body={cfg.comparison.body}
+          bullets={cfg.comparison.bullets}
+          primaryCta={cfg.comparison.primaryCta}
+        />
+
+        {/* ─── EXPERIENCIA VISUAL ─── */}
+        <div id="visual-experience">
+          <VisualExperienceBannerSection
+            clientName={cfg.client.name}
+            clientLocation={cfg.client.location}
+            clientLogo={cfg.client.logo.url}
+            whatsappHref={waHref}
+            phoneHref={phoneHref}
+            visiblePhone={cfg.client.phone}
+            embedUrl={cfg.visualExperience.embedUrl}
+            standaloneUrl={cfg.visualExperience.standaloneUrl}
+            horizontalUrl={BANNER_HORIZONTAL_URL}
+            verticalUrl={BANNER_VERTICAL_URL}
+            previewImage={cfg.visualExperience.previewImage}
+            previewSecondaryImage={cfg.visualExperience.previewSecondaryImage}
+            previewTertiaryImage={cfg.visualExperience.previewTertiaryImage}
+            chips={cfg.visualExperience.chips}
+            eyebrow={cfg.visualExperience.eyebrow}
+            title={cfg.visualExperience.title}
+            body={cfg.visualExperience.body}
+            supportBody={cfg.visualExperience.supportBody}
+            primaryCta={cfg.visualExperience.primaryCta}
+            secondaryCta={cfg.visualExperience.secondaryCta}
+            pieceCta={cfg.visualExperience.pieceCta}
+          />
+        </div>
+
+        {/* ─── MERCADOS INTERNACIONALES ─── */}
+        <section id="mercados" className="py-28 md:py-36 px-6 md:px-12 bg-[#F7F3EC] text-[#111]">
+          <div className="max-w-6xl mx-auto">
+            <SectionReveal className="mb-14">
+              <span className="text-[10px] tracking-[0.3em] text-[#c4a96a] font-mono uppercase">Mercado internacional</span>
+              <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight max-w-2xl text-[#111]">
+                El comprador de Torrevieja decide desde otro país.
+              </h2>
+              <p className="mt-6 text-[#555] leading-relaxed max-w-2xl">
+                Casas Espania opera en uno de los mercados con mayor demanda internacional de la Costa Blanca.
+                La experiencia visual reduce la fricción del comprador remoto y del propietario que compara agencias:
+                quien impacta visualmente primero, capta primero.
+              </p>
+            </SectionReveal>
+
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+              {markets.map(({ flag, label, desc }) => (
+                <SectionReveal key={label}>
+                  <div className="border border-black/10 bg-white p-6 h-full">
+                    <div className="text-3xl mb-4">{flag}</div>
+                    <div className="font-serif text-lg text-[#111] mb-2">{label}</div>
+                    <p className="text-sm text-[#555] leading-relaxed">{desc}</p>
+                  </div>
+                </SectionReveal>
+              ))}
+            </div>
+
+            <SectionReveal className="mt-12 border border-black/10 bg-white p-8">
+              <div className="grid gap-8 md:grid-cols-3">
+                {[
+                  { icon: BarChart3, val: `${cfg.audit.score}/100`, label: 'Score CRM', desc: `Prioridad ${cfg.audit.priority} — alta oportunidad de conversión para activo visual piloto en Torrevieja` },
+                  { icon: Zap, val: '3–7 días', label: 'Tiempo de entrega', desc: 'Del briefing al activo publicado con URL limpia, QR y embed disponible para enviar por WhatsApp' },
+                  { icon: Star, val: '4 activos', label: 'Pack completo', desc: 'Experiencia Visual · Landing · Web Completa · Pack de Banners personalizados para Casas Espania' },
+                ].map(({ icon: Icon, val, label, desc }) => (
+                  <div key={label} className="flex flex-col gap-3">
+                    <Icon size={22} className="text-[#c4a96a]" />
+                    <div className="text-4xl font-serif text-[#111]">{val}</div>
+                    <div className="text-xs tracking-[0.18em] uppercase font-mono text-[#c4a96a]">{label}</div>
+                    <p className="text-sm text-[#555] leading-relaxed">{desc}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionReveal>
+          </div>
+        </section>
+
+        {/* ─── SERVICIOS ─── */}
+        <section id="servicios" className="py-28 md:py-36 px-6 md:px-12">
+          <div className="max-w-6xl mx-auto">
+            <SectionReveal className="mb-14">
+              <span className="text-[10px] tracking-[0.3em] text-[#c4a96a] font-mono uppercase">Sistema Immersive Sales</span>
+              <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight max-w-2xl">
+                Cuatro activos que multiplican la captación de Casas Espania.
+              </h2>
+            </SectionReveal>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              {services.map(({ num, title, body, detail }) => (
+                <SectionReveal key={num}>
+                  <div className="border border-white/10 bg-white/[0.02] p-8 h-full flex flex-col gap-5">
+                    <div className="flex items-start justify-between gap-4">
+                      <span className="text-xs font-mono text-[#c4a96a]">{num}</span>
+                      <span className="text-[10px] font-mono tracking-[0.16em] text-[#555] uppercase border border-white/10 px-3 py-1">{detail}</span>
+                    </div>
+                    <h3 className="font-serif text-xl text-[#F7F7F7]">{title}</h3>
+                    <p className="text-sm text-[#888] leading-relaxed flex-1">{body}</p>
+                  </div>
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── IMMERSPHERE SERVICES ─── */}
+        <ImmersphereServicesSection
+          servicesUrl={cfg.immersphereServices.primaryHref}
+          eyebrow={cfg.immersphereServices.eyebrow}
+          title={cfg.immersphereServices.title}
+          body={cfg.immersphereServices.body}
+          secondary={cfg.immersphereServices.secondary}
+          primaryCta={cfg.immersphereServices.primaryCta}
+        />
+
+        {/* ─── PROCESO ─── */}
+        <section id="proceso" className="py-28 md:py-36 px-6 md:px-12 bg-[#0F0E0C]">
+          <div className="max-w-6xl mx-auto">
+            <SectionReveal className="mb-14">
+              <span className="text-[10px] tracking-[0.3em] text-[#c4a96a] font-mono uppercase">Cómo funciona</span>
+              <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight max-w-2xl">
+                De la propiedad piloto al activo publicado en una semana.
+              </h2>
+            </SectionReveal>
+
+            <div className="grid gap-4 md:grid-cols-5">
+              {process.map(({ step, title, body }) => (
+                <SectionReveal key={step}>
+                  <div className="border border-white/10 bg-white/[0.02] p-6 h-full flex flex-col gap-4">
+                    <span className="text-3xl font-serif text-[#c4a96a]/40">{step}</span>
+                    <h3 className="font-serif text-lg text-[#F7F7F7]">{title}</h3>
+                    <p className="text-xs text-[#777] leading-relaxed flex-1">{body}</p>
+                  </div>
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── PACK DE BANNERS ─── */}
+        <section className="py-24 px-6 md:px-12 bg-[#0F0E0C]">
+          <div className="max-w-6xl mx-auto">
+            <SectionReveal className="mb-10">
+              <span className="text-[10px] tracking-[0.3em] text-[#c4a96a] font-mono uppercase">Pack de Banners Personalizados</span>
+              <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight max-w-2xl">
+                Piezas de captación con la identidad de Casas Espania.
+              </h2>
+            </SectionReveal>
+
+            <div className="grid gap-5 md:grid-cols-3">
+              <SectionReveal>
+                <div className="border border-white/10 bg-white/[0.02] p-8 flex flex-col gap-5">
+                  <span className="text-[10px] font-mono text-[#c4a96a] uppercase tracking-[0.2em]">Pack Index</span>
+                  <h3 className="font-serif text-xl">Índice del Pack</h3>
+                  <p className="text-sm text-[#777] leading-relaxed flex-1">Página principal con ambos formatos, datos de Casas Espania y acceso directo a cada banner de campaña.</p>
+                  <a href={BANNER_PACK_URL}
+                    className="inline-flex items-center gap-2 bg-[#c4a96a] text-black px-5 py-3 text-xs font-bold tracking-[0.12em] uppercase hover:bg-[#d4b97a] transition-colors">
+                    Ver Pack <ExternalLink size={12} />
+                  </a>
+                </div>
+              </SectionReveal>
+
+              <SectionReveal>
+                <div className="border border-white/10 bg-white/[0.02] p-8 flex flex-col gap-5">
+                  <span className="text-[10px] font-mono text-[#c4a96a] uppercase tracking-[0.2em]">Vertical · 9:16</span>
+                  <h3 className="font-serif text-xl">Banner Vertical</h3>
+                  <p className="text-sm text-[#777] leading-relaxed flex-1">1080×1920 px. Para stories, WhatsApp, Reels y captación de propietarios en móvil.</p>
+                  <a href={BANNER_VERTICAL_URL}
+                    className="inline-flex items-center gap-2 border border-[#c4a96a]/40 text-[#c4a96a] px-5 py-3 text-xs font-bold tracking-[0.12em] uppercase hover:border-[#c4a96a] transition-colors">
+                    Ver Vertical <ExternalLink size={12} />
+                  </a>
+                </div>
+              </SectionReveal>
+
+              <SectionReveal>
+                <div className="border border-white/10 bg-white/[0.02] p-8 flex flex-col gap-5">
+                  <span className="text-[10px] font-mono text-[#c4a96a] uppercase tracking-[0.2em]">Horizontal · 16:9</span>
+                  <h3 className="font-serif text-xl">Banner Horizontal</h3>
+                  <p className="text-sm text-[#777] leading-relaxed flex-1">1920×1080 px. Para web, header, display y presentación comercial de Casas Espania.</p>
+                  <a href={BANNER_HORIZONTAL_URL}
+                    className="inline-flex items-center gap-2 border border-[#c4a96a]/40 text-[#c4a96a] px-5 py-3 text-xs font-bold tracking-[0.12em] uppercase hover:border-[#c4a96a] transition-colors">
+                    Ver Horizontal <ExternalLink size={12} />
+                  </a>
+                </div>
+              </SectionReveal>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── HIGH INTENT CONTACT ─── */}
+        <div id="contacto">
+          <HighIntentContactSection
+            whatsappHref={waHref}
+            phoneHref={phoneHref}
+            visiblePhone={cfg.client.phone}
+            eyebrow={cfg.highIntentContact.eyebrow}
+            title={cfg.highIntentContact.title}
+            body={cfg.highIntentContact.body}
+            primaryCta={cfg.highIntentContact.primaryCta}
+            secondaryCta={cfg.highIntentContact.secondaryCta}
+            microcopy={cfg.highIntentContact.microcopy}
+          />
+        </div>
+
+        {/* ─── FOOTER ─── */}
+        <footer className="border-t border-white/10 px-6 md:px-12 py-16">
+          <div className="max-w-6xl mx-auto grid gap-8 md:grid-cols-[1fr_1fr_1fr]">
+            <div className="flex flex-col gap-4">
+              <img src={cfg.client.logo.url} alt="Casas Espania" className="h-8 w-auto self-start" style={{ filter: 'brightness(0) invert(1)' }} />
+              <p className="text-sm text-[#777] leading-relaxed max-w-xs">
+                {cfg.client.sector} · {cfg.client.location}
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <div className="text-[10px] tracking-[0.24em] text-[#c4a96a] font-mono uppercase mb-2">Contacto</div>
+              <div className="flex items-center gap-2 text-sm text-[#D8D1C7]"><Phone size={13} className="text-[#c4a96a]" /> {cfg.client.phone}</div>
+              <div className="flex items-center gap-2 text-sm text-[#D8D1C7]"><Mail size={13} className="text-[#c4a96a]" /> {cfg.client.email}</div>
+              <div className="flex items-center gap-2 text-sm text-[#D8D1C7]"><MapPin size={13} className="text-[#c4a96a]" /> {cfg.client.location}</div>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <div className="text-[10px] tracking-[0.24em] text-[#c4a96a] font-mono uppercase mb-2">Activos Casas Espania</div>
+              <a href={cfg.visualExperience.standaloneUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-[#D8D1C7] hover:text-[#c4a96a] transition-colors flex items-center gap-2"><ExternalLink size={12} /> Experiencia Visual</a>
+              <a href="/casas-espania" className="text-sm text-[#D8D1C7] hover:text-[#c4a96a] transition-colors flex items-center gap-2"><ExternalLink size={12} /> Landing Comercial</a>
+              <a href={BANNER_PACK_URL} className="text-sm text-[#D8D1C7] hover:text-[#c4a96a] transition-colors flex items-center gap-2"><ExternalLink size={12} /> Pack de Banners</a>
+            </div>
+          </div>
+
+          <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/5 flex flex-wrap justify-between gap-4">
+            <span className="text-xs text-[#555]">Preview conceptual · Casas Espania · {cfg.client.location} · Immersphere Pro 2026</span>
+            <span className="text-xs text-[#555]">Activos pendientes de validación comercial por parte de Casas Espania</span>
+          </div>
+        </footer>
+      </main>
+    </>
+  );
+};

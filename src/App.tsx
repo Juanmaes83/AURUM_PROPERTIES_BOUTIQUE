@@ -20,6 +20,12 @@ import { EmbassyLevanteWebCompleta } from './EmbassyLevanteWebCompleta';
 import { EmbassyLevanteBannerPack } from './EmbassyLevanteBannerPack';
 import { EmbassyLevanteBannerVertical } from './EmbassyLevanteBannerVertical';
 import { EmbassyLevanteBannerHorizontal } from './EmbassyLevanteBannerHorizontal';
+import { CasasEspaniaLanding } from './CasasEspaniaLanding';
+import { CasasEspaniaVisualExperience } from './CasasEspaniaVisualExperience';
+import { CasasEspaniaWebCompleta } from './CasasEspaniaWebCompleta';
+import { CasasEspaniaBannerPack } from './CasasEspaniaBannerPack';
+import { CasasEspaniaBannerVertical } from './CasasEspaniaBannerVertical';
+import { CasasEspaniaBannerHorizontal } from './CasasEspaniaBannerHorizontal';
 
 function App() {
   return (
@@ -61,6 +67,14 @@ function App() {
       <Route path="/banners/embassy-levante" element={<EmbassyLevanteBannerPack />} />
       <Route path="/banners/embassy-levante/vertical" element={<EmbassyLevanteBannerVertical />} />
       <Route path="/banners/embassy-levante/horizontal" element={<EmbassyLevanteBannerHorizontal />} />
+
+      {/* Casas Espania — canonical routes */}
+      <Route path="/casas-espania" element={<CasasEspaniaLanding />} />
+      <Route path="/visual-experience/casas-espania" element={<CasasEspaniaVisualExperience />} />
+      <Route path="/casas-espania-web-completa" element={<CasasEspaniaWebCompleta />} />
+      <Route path="/banners/casas-espania" element={<CasasEspaniaBannerPack />} />
+      <Route path="/banners/casas-espania/vertical" element={<CasasEspaniaBannerVertical />} />
+      <Route path="/banners/casas-espania/horizontal" element={<CasasEspaniaBannerHorizontal />} />
     </Routes>
   );
 }

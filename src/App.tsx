@@ -14,6 +14,12 @@ import { SandhouseWebCompleta } from './SandhouseWebCompleta';
 import { SandhouseBannerPack } from './SandhouseBannerPack';
 import { SandhouseBannerVertical } from './SandhouseBannerVertical';
 import { SandhouseBannerHorizontal } from './SandhouseBannerHorizontal';
+import { EmbassyLevanteLanding } from './EmbassyLevanteLanding';
+import { EmbassyLevanteVisualExperience } from './EmbassyLevanteVisualExperience';
+import { EmbassyLevanteWebCompleta } from './EmbassyLevanteWebCompleta';
+import { EmbassyLevanteBannerPack } from './EmbassyLevanteBannerPack';
+import { EmbassyLevanteBannerVertical } from './EmbassyLevanteBannerVertical';
+import { EmbassyLevanteBannerHorizontal } from './EmbassyLevanteBannerHorizontal';
 
 function App() {
   return (
@@ -47,6 +53,14 @@ function App() {
       <Route path="/visual-experience/sandhouse-inmobiliaria" element={<SandhouseVisualExperience />} />
       <Route path="/sandhouse-inmobiliaria-web-completa" element={<SandhouseWebCompleta />} />
       <Route path="/sandhouse-inmobiliaria/banners" element={<SandhouseBannerPack />} />
+
+      {/* Embassy Levante — canonical routes */}
+      <Route path="/embassy-levante" element={<EmbassyLevanteLanding />} />
+      <Route path="/visual-experience/embassy-levante" element={<EmbassyLevanteVisualExperience />} />
+      <Route path="/embassy-levante-web-completa" element={<EmbassyLevanteWebCompleta />} />
+      <Route path="/banners/embassy-levante" element={<EmbassyLevanteBannerPack />} />
+      <Route path="/banners/embassy-levante/vertical" element={<EmbassyLevanteBannerVertical />} />
+      <Route path="/banners/embassy-levante/horizontal" element={<EmbassyLevanteBannerHorizontal />} />
     </Routes>
   );
 }

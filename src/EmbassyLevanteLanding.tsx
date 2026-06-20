@@ -73,14 +73,19 @@ export const EmbassyLevanteLanding = () => {
 
         {/* ─── HERO ─── */}
         <section className="relative min-h-screen overflow-hidden px-6 py-10 md:px-12 flex items-center">
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0d0a07] to-[#0B0B0C]" />
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                'radial-gradient(ellipse 70% 50% at 20% 60%, rgba(196,169,106,0.06) 0%, transparent 70%)',
-            }}
-          />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ opacity: 0.32 }}
+          >
+            <source src="/VIDEO_AURUM_HEROWEB.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
           <div className="relative z-10 max-w-6xl mx-auto w-full grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
             <motion.div
@@ -168,6 +173,8 @@ export const EmbassyLevanteLanding = () => {
           visiblePhone={cfg.salesContact.visiblePhone}
           embedUrl={cfg.visualExperience.embedUrl}
           standaloneUrl={cfg.visualExperience.standaloneUrl}
+          horizontalUrl="/banners/embassy-levante/horizontal"
+          verticalUrl="/banners/embassy-levante/vertical"
           chips={cfg.visualExperience.chips}
           eyebrow={cfg.visualExperience.eyebrow}
           title={cfg.visualExperience.title}

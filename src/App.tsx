@@ -20,6 +20,12 @@ import { EmbassyLevanteWebCompleta } from './EmbassyLevanteWebCompleta';
 import { EmbassyLevanteBannerPack } from './EmbassyLevanteBannerPack';
 import { EmbassyLevanteBannerVertical } from './EmbassyLevanteBannerVertical';
 import { EmbassyLevanteBannerHorizontal } from './EmbassyLevanteBannerHorizontal';
+import { SandhouseInmobiliariaLanding } from "./SandhouseInmobiliariaLanding";
+import { SandhouseInmobiliariaWebCompleta } from "./SandhouseInmobiliariaWebCompleta";
+import { SandhouseInmobiliariaVisualExperience } from "./SandhouseInmobiliariaVisualExperience";
+import { SandhouseInmobiliariaBannerPack } from "./SandhouseInmobiliariaBannerPack";
+import { SandhouseInmobiliariaBannerVertical } from "./SandhouseInmobiliariaBannerVertical";
+import { SandhouseInmobiliariaBannerHorizontal } from "./SandhouseInmobiliariaBannerHorizontal";
 
 function App() {
   return (
@@ -61,7 +67,13 @@ function App() {
       <Route path="/banners/embassy-levante" element={<EmbassyLevanteBannerPack />} />
       <Route path="/banners/embassy-levante/vertical" element={<EmbassyLevanteBannerVertical />} />
       <Route path="/banners/embassy-levante/horizontal" element={<EmbassyLevanteBannerHorizontal />} />
-    </Routes>
+          <Route path="/sandhouse-inmobiliaria" element={<SandhouseInmobiliariaLanding />} />
+      <Route path="/sandhouse-inmobiliaria-web-completa" element={<SandhouseInmobiliariaWebCompleta />} />
+      <Route path="/visual-experience/sandhouse-inmobiliaria" element={<SandhouseInmobiliariaVisualExperience />} />
+      <Route path="/banners/sandhouse-inmobiliaria" element={<SandhouseInmobiliariaBannerPack />} />
+      <Route path="/banners/sandhouse-inmobiliaria/vertical" element={<SandhouseInmobiliariaBannerVertical />} />
+      <Route path="/banners/sandhouse-inmobiliaria/horizontal" element={<SandhouseInmobiliariaBannerHorizontal />} />
+      </Routes>
   );
 }
 

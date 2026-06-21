@@ -21,6 +21,7 @@ import { EmbassyLevanteBannerPack } from './EmbassyLevanteBannerPack';
 import { EmbassyLevanteBannerVertical } from './EmbassyLevanteBannerVertical';
 import { EmbassyLevanteBannerHorizontal } from './EmbassyLevanteBannerHorizontal';
 
+
 function App() {
   return (
     <Routes>
@@ -61,7 +62,8 @@ function App() {
       <Route path="/banners/embassy-levante" element={<EmbassyLevanteBannerPack />} />
       <Route path="/banners/embassy-levante/vertical" element={<EmbassyLevanteBannerVertical />} />
       <Route path="/banners/embassy-levante/horizontal" element={<EmbassyLevanteBannerHorizontal />} />
-    </Routes>
+    
+      </Routes>
   );
 }
 

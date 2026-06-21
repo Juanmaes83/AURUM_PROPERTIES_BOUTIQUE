@@ -214,7 +214,7 @@ export const proposalPackage = {
       ],
       "routes": {
         "primary": "https://aurum-properties-boutique.vercel.app/visual-experience/sandhouse-inmobiliaria",
-        "alias": "https://aurum-properties-boutique.vercel.app/sandhouse-inmobiliaria/visual-experiencesandhouse-inmobiliaria",
+        "alias": "https://aurum-properties-boutique.vercel.app/sandhouse-inmobiliaria/visual-experience",
         "rubikEmbed": "https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/sandhouse-inmobiliaria/?embed=1"
       }
     },

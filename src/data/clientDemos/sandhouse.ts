@@ -14,7 +14,7 @@ export const sandhouseDemo = {
     claim: 'La mejor manera de encontrar tu hogar en Torrevieja y en la costa levantina.',
   },
   audit: {
-    score: 88,
+    score: 56,
     priority: 'A',
     strengths: [
       'Agencia consolidada en uno de los mercados más activos de la Costa Blanca',
@@ -51,7 +51,7 @@ export const sandhouseDemo = {
   },
   visualExperience: {
     embedUrl: 'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/sandhouse-inmobiliaria/?embed=1',
-    standaloneUrl: 'https://aurum-properties-boutique.vercel.app/sandhouse-inmobiliaria/visual-experience',
+    standaloneUrl: 'https://aurum-properties-boutique.vercel.app/visual-experience/sandhouse-inmobiliaria',
     chips: ['Propiedad destacada', 'Torrevieja', 'WhatsApp', 'Costa Blanca', 'Primera visita'],
     eyebrow: 'EXPERIENCIA VISUAL DE PROPIEDAD',
     title: 'Un primer impacto que se puede enviar por WhatsApp.',

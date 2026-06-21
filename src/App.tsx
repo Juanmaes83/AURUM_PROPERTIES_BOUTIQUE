@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { SpecPreviewRouter } from './generated/renderers/SpecPreviewRouter';
 import { AurumOriginal } from './AurumOriginal';
 import { CasasYMarDemo } from './CasasYMarDemo';
 import { CostaInvestDemo } from './CostaInvestDemo';
@@ -7,6 +8,24 @@ import { CostaInvestVisualExperience } from './CostaInvestVisualExperience';
 import { CostaInvestBannerPack } from './CostaInvestBannerPack';
 import { CostaInvestBannerVertical } from './CostaInvestBannerVertical';
 import { CostaInvestBannerHorizontal } from './CostaInvestBannerHorizontal';
+import { SandhouseLanding } from './SandhouseLanding';
+import { SandhouseVisualExperience } from './SandhouseVisualExperience';
+import { SandhouseWebCompleta } from './SandhouseWebCompleta';
+import { SandhouseBannerPack } from './SandhouseBannerPack';
+import { SandhouseBannerVertical } from './SandhouseBannerVertical';
+import { SandhouseBannerHorizontal } from './SandhouseBannerHorizontal';
+import { EmbassyLevanteLanding } from './EmbassyLevanteLanding';
+import { EmbassyLevanteVisualExperience } from './EmbassyLevanteVisualExperience';
+import { EmbassyLevanteWebCompleta } from './EmbassyLevanteWebCompleta';
+import { EmbassyLevanteBannerPack } from './EmbassyLevanteBannerPack';
+import { EmbassyLevanteBannerVertical } from './EmbassyLevanteBannerVertical';
+import { EmbassyLevanteBannerHorizontal } from './EmbassyLevanteBannerHorizontal';
+import { SandhouseInmobiliariaLanding } from "./SandhouseInmobiliariaLanding";
+import { SandhouseInmobiliariaWebCompleta } from "./SandhouseInmobiliariaWebCompleta";
+import { SandhouseInmobiliariaVisualExperience } from "./SandhouseInmobiliariaVisualExperience";
+import { SandhouseInmobiliariaBannerPack } from "./SandhouseInmobiliariaBannerPack";
+import { SandhouseInmobiliariaBannerVertical } from "./SandhouseInmobiliariaBannerVertical";
+import { SandhouseInmobiliariaBannerHorizontal } from "./SandhouseInmobiliariaBannerHorizontal";
 
 function App() {
   return (
@@ -19,7 +38,42 @@ function App() {
       <Route path="/banners/costa-invest" element={<CostaInvestBannerPack />} />
       <Route path="/banners/costa-invest/vertical" element={<CostaInvestBannerVertical />} />
       <Route path="/banners/costa-invest/horizontal" element={<CostaInvestBannerHorizontal />} />
-    </Routes>
+
+      {/* Sandhouse Inmobiliaria — canonical routes */}
+      <Route path="/sandhouse-inmobiliaria" element={<SandhouseLanding />} />
+      <Route path="/sandhouse-inmobiliaria/visual-experience" element={<SandhouseVisualExperience />} />
+      <Route path="/sandhouse-inmobiliaria/web-completa" element={<SandhouseWebCompleta />} />
+      <Route path="/banners/sandhouse-inmobiliaria" element={<SandhouseBannerPack />} />
+      <Route path="/banners/sandhouse-inmobiliaria/vertical" element={<SandhouseBannerVertical />} />
+      <Route path="/banners/sandhouse-inmobiliaria/horizontal" element={<SandhouseBannerHorizontal />} />
+
+      {/* Spec preview routes — rendered from premiumSpecs, do not conflict with manual routes above */}
+      <Route path="/preview/:slug" element={<SpecPreviewRouter view="landing" />} />
+      <Route path="/preview/:slug/visual-experience" element={<SpecPreviewRouter view="visualExperience" />} />
+      <Route path="/preview/:slug/web-completa" element={<SpecPreviewRouter view="fullWebsite" />} />
+      <Route path="/preview/:slug/banners" element={<SpecPreviewRouter view="bannerPack" />} />
+      <Route path="/preview/:slug/banners/vertical" element={<SpecPreviewRouter view="bannerVertical" />} />
+      <Route path="/preview/:slug/banners/horizontal" element={<SpecPreviewRouter view="bannerHorizontal" />} />
+
+      {/* Sandhouse Inmobiliaria — alias routes */}
+      <Route path="/visual-experience/sandhouse-inmobiliaria" element={<SandhouseVisualExperience />} />
+      <Route path="/sandhouse-inmobiliaria-web-completa" element={<SandhouseWebCompleta />} />
+      <Route path="/sandhouse-inmobiliaria/banners" element={<SandhouseBannerPack />} />
+
+      {/* Embassy Levante — canonical routes */}
+      <Route path="/embassy-levante" element={<EmbassyLevanteLanding />} />
+      <Route path="/visual-experience/embassy-levante" element={<EmbassyLevanteVisualExperience />} />
+      <Route path="/embassy-levante-web-completa" element={<EmbassyLevanteWebCompleta />} />
+      <Route path="/banners/embassy-levante" element={<EmbassyLevanteBannerPack />} />
+      <Route path="/banners/embassy-levante/vertical" element={<EmbassyLevanteBannerVertical />} />
+      <Route path="/banners/embassy-levante/horizontal" element={<EmbassyLevanteBannerHorizontal />} />
+          <Route path="/sandhouse-inmobiliaria" element={<SandhouseInmobiliariaLanding />} />
+      <Route path="/sandhouse-inmobiliaria-web-completa" element={<SandhouseInmobiliariaWebCompleta />} />
+      <Route path="/visual-experience/sandhouse-inmobiliaria" element={<SandhouseInmobiliariaVisualExperience />} />
+      <Route path="/banners/sandhouse-inmobiliaria" element={<SandhouseInmobiliariaBannerPack />} />
+      <Route path="/banners/sandhouse-inmobiliaria/vertical" element={<SandhouseInmobiliariaBannerVertical />} />
+      <Route path="/banners/sandhouse-inmobiliaria/horizontal" element={<SandhouseInmobiliariaBannerHorizontal />} />
+      </Routes>
   );
 }
 

@@ -1,0 +1,17 @@
+{
+  "slug": "united-real-estate",
+  "clientName": "United Real Estate",
+  "componentBase": "UnitedRealEstate",
+  "camelBase": "unitedRealEstate",
+  "generatedBy": "immersphere-production-orchestrator-v0.4.0",
+  "assetMode": "client_real_asset",
+  "digitalPresenceScore": 68,
+  "routes": {
+    "landing": "/united-real-estate",
+    "webCompleta": "/united-real-estate-web-completa",
+    "visualExperience": "/visual-experience/united-real-estate",
+    "bannerPack": "/banners/united-real-estate",
+    "bannerVertical": "/banners/united-real-estate/vertical",
+    "bannerHorizontal": "/banners/united-real-estate/horizontal"
+  }
+}

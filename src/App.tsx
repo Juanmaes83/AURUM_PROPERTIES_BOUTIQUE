@@ -21,6 +21,7 @@ import { EmbassyLevanteBannerPack } from './EmbassyLevanteBannerPack';
 import { EmbassyLevanteBannerVertical } from './EmbassyLevanteBannerVertical';
 import { EmbassyLevanteBannerHorizontal } from './EmbassyLevanteBannerHorizontal';
 
+
 function App() {
   return (
     <Routes>
@@ -61,7 +62,13 @@ function App() {
       <Route path="/banners/embassy-levante" element={<EmbassyLevanteBannerPack />} />
       <Route path="/banners/embassy-levante/vertical" element={<EmbassyLevanteBannerVertical />} />
       <Route path="/banners/embassy-levante/horizontal" element={<EmbassyLevanteBannerHorizontal />} />
-    </Routes>
+          <Route path="/united-real-estate" element={<UnitedRealEstateLanding />} />
+      <Route path="/united-real-estate-web-completa" element={<UnitedRealEstateWebCompleta />} />
+      <Route path="/visual-experience/united-real-estate" element={<UnitedRealEstateVisualExperience />} />
+      <Route path="/banners/united-real-estate" element={<UnitedRealEstateBannerPack />} />
+      <Route path="/banners/united-real-estate/vertical" element={<UnitedRealEstateBannerVertical />} />
+      <Route path="/banners/united-real-estate/horizontal" element={<UnitedRealEstateBannerHorizontal />} />
+      </Routes>
   );
 }
 

@@ -27,7 +27,7 @@ export function TorreviejaSurWebCompleta() {
       <section style={{ padding: "80px 24px", background: "#111" }}>
         <h2 style={{ textAlign: "center", fontSize: 32, marginBottom: 40 }}>Experiencia Visual</h2>
         <div style={{ maxWidth: 1100, margin: "0 auto", borderRadius: 8, overflow: "hidden" }}>
-          <iframe src="https://rubik-sota-director-de-orquesta.vercel.app/gesture-lab/torrevieja-sur-v1" style={{ width: "100%", height: 600, border: "none" }} title="Visual Experience Torrevieja Sur" />
+          <iframe src="https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/torrevieja-sur/" style={{ width: "100%", height: 600, border: "none" }} title="Visual Experience Torrevieja Sur" />
         </div>
       </section>
 

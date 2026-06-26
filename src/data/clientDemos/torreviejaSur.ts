@@ -37,7 +37,7 @@ export const torreviejaSur = {
     ],
   },
   visualExperience: {
-    embedUrl: "https://rubik-sota-director-de-orquesta.vercel.app/gesture-lab/torrevieja-sur-v1",
+    embedUrl: "https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/torrevieja-sur/",
     standaloneUrl: "https://aurum-properties-boutique.vercel.app/visual-experience/torrevieja-sur",
     bannerPackUrl: "https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/torrevieja-sur/banner-pack",
     bannerVerticalUrl: "https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/torrevieja-sur/banner-vertical",

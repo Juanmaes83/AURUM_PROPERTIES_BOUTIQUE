@@ -3,7 +3,7 @@ export function TorreviejaSurVisualExperience() {
   return (
     <div style={{ width: "100%", height: "100vh", overflow: "hidden" }}>
       <iframe
-        src="https://rubik-sota-director-de-orquesta.vercel.app/gesture-lab/torrevieja-sur-v1"
+        src="https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/torrevieja-sur/"
         style={{ width: "100%", height: "100vh", border: "none" }}
         title="visual-experience torrevieja-sur"
         allow="autoplay"

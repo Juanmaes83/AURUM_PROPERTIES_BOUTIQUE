@@ -21,7 +21,7 @@ import { EmbassyLevanteBannerPack } from './EmbassyLevanteBannerPack';
 import { EmbassyLevanteBannerVertical } from './EmbassyLevanteBannerVertical';
 import { EmbassyLevanteBannerHorizontal } from './EmbassyLevanteBannerHorizontal';
 import { TorreviejaSurLanding } from './TorreviejaSurLanding';
-import { TorreviejaSurWebCompleta } from './TorreviejaSurWebCompleta';
+import { TorreviejaSurPremiumDemo } from './TorreviejaSurPremiumDemo';
 import { TorreviejaSurVisualExperience } from './TorreviejaSurVisualExperience';
 import { TorreviejaSurBannerPack } from './TorreviejaSurBannerPack';
 import { TorreviejaSurBannerVertical } from './TorreviejaSurBannerVertical';
@@ -69,7 +69,7 @@ function App() {
       <Route path="/banners/embassy-levante/vertical" element={<EmbassyLevanteBannerVertical />} />
       <Route path="/banners/embassy-levante/horizontal" element={<EmbassyLevanteBannerHorizontal />} />
           <Route path="/torrevieja-sur" element={<TorreviejaSurLanding />} />
-      <Route path="/torrevieja-sur-web-completa" element={<TorreviejaSurWebCompleta />} />
+      <Route path="/torrevieja-sur-web-completa" element={<TorreviejaSurPremiumDemo />} />
       <Route path="/visual-experience/torrevieja-sur" element={<TorreviejaSurVisualExperience />} />
       <Route path="/banners/torrevieja-sur" element={<TorreviejaSurBannerPack />} />
       <Route path="/banners/torrevieja-sur/vertical" element={<TorreviejaSurBannerVertical />} />

@@ -20,6 +20,12 @@ import { EmbassyLevanteWebCompleta } from './EmbassyLevanteWebCompleta';
 import { EmbassyLevanteBannerPack } from './EmbassyLevanteBannerPack';
 import { EmbassyLevanteBannerVertical } from './EmbassyLevanteBannerVertical';
 import { EmbassyLevanteBannerHorizontal } from './EmbassyLevanteBannerHorizontal';
+import { TorreviejaSurLanding } from './TorreviejaSurLanding';
+import { TorreviejaSurWebCompleta } from './TorreviejaSurWebCompleta';
+import { TorreviejaSurVisualExperience } from './TorreviejaSurVisualExperience';
+import { TorreviejaSurBannerPack } from './TorreviejaSurBannerPack';
+import { TorreviejaSurBannerVertical } from './TorreviejaSurBannerVertical';
+import { TorreviejaSurBannerHorizontal } from './TorreviejaSurBannerHorizontal';
 
 
 function App() {

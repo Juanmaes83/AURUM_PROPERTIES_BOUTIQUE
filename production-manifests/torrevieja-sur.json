@@ -1,0 +1,17 @@
+{
+  "slug": "torrevieja-sur",
+  "clientName": "Torrevieja Sur",
+  "componentBase": "TorreviejaSur",
+  "camelBase": "torreviejaSur",
+  "generatedBy": "immersphere-production-orchestrator-v0.4.0",
+  "assetMode": "fallback_internal_library",
+  "digitalPresenceScore": 68,
+  "routes": {
+    "landing": "/torrevieja-sur",
+    "webCompleta": "/torrevieja-sur-web-completa",
+    "visualExperience": "/visual-experience/torrevieja-sur",
+    "bannerPack": "/banners/torrevieja-sur",
+    "bannerVertical": "/banners/torrevieja-sur/vertical",
+    "bannerHorizontal": "/banners/torrevieja-sur/horizontal"
+  }
+}

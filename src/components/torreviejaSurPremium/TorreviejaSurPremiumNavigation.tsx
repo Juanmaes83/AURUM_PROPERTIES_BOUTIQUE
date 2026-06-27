@@ -39,10 +39,10 @@ export const TorreviejaSurPremiumNavigation = () => {
   return (
     <>
       <motion.nav
-        initial={{ backgroundColor: 'transparent', borderColor: 'transparent' }}
+        initial={{ backgroundColor: 'rgba(247, 247, 247, 0)', borderColor: 'rgba(166, 139, 91, 0)' }}
         animate={{
-          backgroundColor: scrolled ? 'rgba(247, 247, 247, 0.92)' : 'transparent',
-          borderColor: scrolled ? 'var(--gold)' : 'transparent',
+          backgroundColor: scrolled ? 'rgba(247, 247, 247, 0.92)' : 'rgba(247, 247, 247, 0)',
+          borderColor: scrolled ? 'var(--gold)' : 'rgba(166, 139, 91, 0)',
         }}
         transition={{ duration: 0.3 }}
         className="fixed top-8 left-0 right-0 z-50 border-b"

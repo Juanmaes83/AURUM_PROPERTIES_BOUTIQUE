@@ -20,10 +20,10 @@ const aurumImages = [
 ];
 
 const candidateImages = [
-  '/TorreviejaSurPremium/news_1.jpg',
-  '/TorreviejaSurPremium/news_2.jpg',
-  '/TorreviejaSurPremium/news_thumb_1.jpg',
-  '/TorreviejaSurPremium/news_thumb_2.jpg',
+  '/torreviejasur/news_1.jpg',
+  '/torreviejasur/news_2.jpg',
+  '/torreviejasur/news_thumb_1.jpg',
+  '/torreviejasur/news_thumb_2.jpg',
 ];
 
 const PropertyCard = ({

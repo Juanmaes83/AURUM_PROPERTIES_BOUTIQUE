@@ -16,12 +16,12 @@ export const torreviejaSurPremiumDemo = {
       youtube: 'https://www.youtube.com/user/torreviejasur/',
     },
     logo: {
-      url: '/torreviejasur/website-logo.svg',
-      smartUrl: '/torreviejasur/website-logo-smart.svg',
-      footerUrl: '/torreviejasur/website-logo-footer.svg',
-      status: 'pending_validation' as const,
+      url: '/torreviejasur/website-logo-real.jpg',
+      smartUrl: '/torreviejasur/website-logo-real.jpg',
+      footerUrl: '/torreviejasur/website-logo-real.jpg',
+      status: 'public_candidate_pending_validation' as const,
       notes:
-        'Logo descargado como SVG desde la web pública de Torrevieja Sur (https://torreviejasur.com/media/images/website/website-logo.svg). Se usa como asset candidato hasta validación oficial por parte del cliente.',
+        'Logo real de Torrevieja Sur extraido de la web publica del cliente y validado visualmente para esta demo.',
     },
   },
   brand: {
@@ -498,7 +498,7 @@ export const torreviejaSurPremiumDemo = {
     pieceCta: 'VER EXPERIENCIA VISUAL DE PROPIEDAD',
     // Public, client-facing final product (clean, animated, no editor).
     embedUrl:
-      'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/torrevieja-sur/embed.html',
+      'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/torrevieja-sur/?embed=1',
     standaloneUrl:
       'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/torrevieja-sur/',
     horizontalUrl:

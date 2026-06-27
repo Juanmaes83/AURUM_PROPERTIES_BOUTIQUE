@@ -88,7 +88,7 @@ export const TorreviejaSurPremiumHero = () => {
           <img
             src={client.logo.smartUrl || client.logo.url}
             alt={client.name}
-            className="h-8 w-auto object-contain"
+            className="h-12 w-auto object-contain rounded-sm bg-white px-2 py-1 shadow-sm"
           />
           <div className="flex items-center gap-2">
             <Eye size={14} className="text-white" />

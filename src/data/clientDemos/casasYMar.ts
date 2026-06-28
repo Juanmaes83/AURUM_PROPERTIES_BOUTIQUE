@@ -497,10 +497,13 @@ export const casasYMarDemo = {
     secondaryHref: 'tel:+34629554870',
     pieceCta: 'VER EXPERIENCIA VISUAL DE PROPIEDAD',
     // Public, client-facing final product (clean, animated, no editor).
+    // Audited 2026-06-28: ?embed=1 and directory root were broken (served the
+    // Gesture Lab editor). Real clean files are banner-vertical.html (single
+    // piece for iframe) and embed.html (showcase page with both formats).
     embedUrl:
-      'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/casas-y-mar-visita-propiedad/?embed=1',
+      'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/casas-y-mar-visita-propiedad/banner-vertical.html',
     standaloneUrl:
-      'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/casas-y-mar-visita-propiedad/',
+      'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/casas-y-mar-visita-propiedad/embed.html',
     horizontalUrl:
       'https://rubik-sota-director-de-orquesta.vercel.app/dynamic-motion-banner/casas-y-mar-visita-propiedad/banner-horizontal.html',
     verticalUrl:
